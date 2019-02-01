@@ -1,9 +1,10 @@
 public class Team7SortCompetition extends SortCompetition {
     public int challengeOne(int[] arr) {
+
     }
 
     public int challengeTwo(String[] arr, String query) {
-
+        String[] arr = new String[num];
     }
 
     public int challengeThree(int[] arr) {
