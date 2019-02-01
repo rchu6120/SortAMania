@@ -2,7 +2,20 @@ public class Team8SortCompetition extends SortCompetition {
 
     @Override
     public int challengeOne(int[] arr) {
-        return 0;
+        int length = arr.length;
+
+        for (int gap = length/2; gap > 0; gap/= 2) {
+            for (int i = gap; i < length; i++) {
+                int temp = arr[i];
+
+                for (int j = i; j >= gap && arr[j - gap] > temp; j-= gap) {
+                    arr[j] = arr[j - gap];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        //find median value and return it
     }
 
     @Override
@@ -100,6 +113,10 @@ public class Team8SortCompetition extends SortCompetition {
         }
 
         return arr;
+    }
+
+    public static void printIntArr(int [] arr) {
+        //prints array
     }
 }
 

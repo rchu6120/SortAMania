@@ -5,7 +5,7 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
     String[] randStringArr = randomStringArr(10000, 5);
 
     System.out.println("Unsorted");
-    printArr(randIntArr);
+    printIntArr(randIntArr);
 
     long time = System.currentTimeMillis();
     int median = team1.challengeOne(randIntArr);
@@ -14,6 +14,6 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
     System.out.println("Median equals: " + median);
 
     System.out.println("Sorted");
-    printArr(randIntArr);
+    printIntArr(randIntArr);
 
 }
