@@ -181,7 +181,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeTwo(String[] arr, String query)
     {
-        return 0;
+
     }
 
     @Override
@@ -209,6 +209,7 @@ public class Team14SortCompetition extends SortCompetition
     }
     //__________________________________________________________________________________________________________________
     // Sorting algorithms
+
     public static void insertionSort(int [] in)
     {
         for (int i =0; i < in.length; i++)
@@ -221,6 +222,37 @@ public class Team14SortCompetition extends SortCompetition
                 }
                 else a = 0;
             }
+        }
+    }
+
+    public static void bubbleSort(String[] list1) {
+        int swap = 1;
+        int y;
+        while (swap != 0) {
+            swap = 0;
+            for (int x = 0; x < list1.length - 1; x++) {
+                y = x + 1;
+                if (list1[y].compareTo(list1[x]) < 0) {
+                    swap(list1, x, y);
+                    swap++;
+                }
+            }
+        }
+    }
+
+    public static void selectionSort(double[] arr) {
+        int i; int j; int min;
+        for (i = 0; i < arr.length-1; i++)
+        {
+            min = i;
+            for (j = i+1; j < arr.length; j++)
+            {
+                if (arr[j]<arr[min])
+                {
+                    min = j;
+                }
+            }
+            Util.swap(arr,min,i);
         }
     }
 
