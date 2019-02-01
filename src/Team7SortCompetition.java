@@ -4,7 +4,7 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public int challengeTwo(String[] arr, String query) {
-        return 0;
+        String[] arr = new String[num];
     }
 
     public int challengeThree(int[] arr) {
