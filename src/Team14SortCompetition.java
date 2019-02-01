@@ -179,7 +179,7 @@ public class Team14SortCompetition extends SortCompetition
     }
     //__________________________________________________________________________________________________________________
 
-    // done
+
     @Override
     public int challengeOne(int[] arr)
     {
@@ -191,7 +191,13 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeTwo(String[] arr, String query)
     {
-        return 0;
+        int y = 0;
+        bubbleSort(arr);
+        for (int x = 0; x < arr.length; x++)
+        {
+            if (arr[x].indexOf(query) > 0 );
+
+        }
     }
 
 
@@ -202,8 +208,6 @@ public class Team14SortCompetition extends SortCompetition
         insertionSort(arr);
         return getMedian(arr);
     }
-
-
 
     @Override
     public int challengeFour(int[][] arr)
@@ -223,8 +227,9 @@ public class Team14SortCompetition extends SortCompetition
         return "We are Team14, If we win, please send V-bucks to chenBrian@fortnite.edu";
     }
     //__________________________________________________________________________________________________________________
-    // Sorting algorithms
 
+
+    //Sorting Algorithms
     public static void insertionSort(int [] in)
     {
         for (int i =0; i < in.length; i++)
