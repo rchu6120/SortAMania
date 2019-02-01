@@ -34,4 +34,14 @@ public class sortHelper {
     }
 
 
+    public static String printIntArr(int[] arr) {
+        String r= "";
+
+        for(int num : arr) {
+            r=r+""+num;
+        }
+        return r;
+    }
+
+
 }
