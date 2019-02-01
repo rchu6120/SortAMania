@@ -1,6 +1,6 @@
 public class sortAManiaTestRunner {
 
-    SortCompetition team1 = new Team1SortCompetition();
+    SortCompetition team1 = new Team8SortCompetition();
     int[] randIntArr = randIntsArr(10000);
     String[] randStringArr = randomStringArr(10000, 5);
 
