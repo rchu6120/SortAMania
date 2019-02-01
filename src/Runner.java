@@ -3,8 +3,8 @@ public class Runner {
 
     public static void main(String[] args) {
         SortCompetition team7= new Team7SortCompetition();
-        int[] randIntArr= randomIntsArr(10000);
-        String[] randStringArr= randomStringArr(5454,45545);
+        int[] randIntArr= sortHelper.randIntArr(10000);
+        String[] randStringArr= sortHelper.randStringArr(5,5);
 
         System.out.println("Unsorted");
         printArr(randIntArr);
