@@ -164,27 +164,28 @@ public class Team14SortCompetition extends SortCompetition
         return sum1 == sum2;
 
     }
-    //__________________________________________________________________________________________________________________
 
-
-
-
-
-
-    @Override
-    public int challengeOne(int[] arr)
+    public static int getMedian (int [] arr)
     {
-        insertionSort(arr);
-        // if odd
         if (arr.length % 2 != 0)
         {
-            return arr[(arr.length / 2) + 1 ];
+            return (int)(arr[(arr.length / 2) + 1 ]);
         }
         // if even
         else
         {
-            return (arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
+            return (int)(arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
         }
+    }
+    //__________________________________________________________________________________________________________________
+
+    // done
+    @Override
+    public int challengeOne(int[] arr)
+    {
+        insertionSort(arr);
+        return getMedian(arr);
+
     }
 
     @Override
@@ -193,11 +194,16 @@ public class Team14SortCompetition extends SortCompetition
         return 0;
     }
 
+
+    // done
     @Override
     public int challengeThree(int[] arr)
     {
-        return 0;
+        insertionSort(arr);
+        return getMedian(arr);
     }
+
+
 
     @Override
     public int challengeFour(int[][] arr)
