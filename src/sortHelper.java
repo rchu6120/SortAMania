@@ -25,7 +25,7 @@ public class sortHelper {
         return array;
     }
 
-    public static String printArray(String[] arr) {
+    public static String printArr(String[] arr) {
         String r= "";
         for(int i=0; i<arr.length; i++) {
             r= r+ "[" + arr[i] + "]";
