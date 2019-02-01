@@ -174,14 +174,23 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeOne(int[] arr)
     {
-        return 0;
-
+        insertionSort(arr);
+        // if odd
+        if (arr.length % 2 != 0)
+        {
+            return arr[(arr.length / 2) + 1 ];
+        }
+        // if even
+        else
+        {
+            return (arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
+        }
     }
 
     @Override
     public int challengeTwo(String[] arr, String query)
     {
-
+        return 0;
     }
 
     @Override
@@ -252,7 +261,7 @@ public class Team14SortCompetition extends SortCompetition
                     min = j;
                 }
             }
-            Util.swap(arr,min,i);
+            swap(arr,min,i);
         }
     }
 
