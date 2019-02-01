@@ -174,20 +174,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeOne(int[] arr)
     {
-        public static void insertionSort(int [] in)
-        {
-            for (int i =0; i < in.length; i++)
-            {
-                for(int a = i; a >0; a--)
-                {
-                    if (in[a]<in[a-1])
-                    {
-                        swap(in,a,a-1);
-                    }
-                    else a = 0;
-                }
-            }
-        }
+        return 0;
 
     }
 
@@ -220,4 +207,21 @@ public class Team14SortCompetition extends SortCompetition
     {
         return "We are Team14, If we win, please send V-bucks to chenBrian@fortnite.edu";
     }
+    //__________________________________________________________________________________________________________________
+    // Sorting algorithms
+    public static void insertionSort(int [] in)
+    {
+        for (int i =0; i < in.length; i++)
+        {
+            for(int a = i; a >0; a--)
+            {
+                if (in[a]<in[a-1])
+                {
+                    swap(in,a,a-1);
+                }
+                else a = 0;
+            }
+        }
+    }
+
 }
