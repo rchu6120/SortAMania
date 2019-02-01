@@ -26,6 +26,8 @@ public class Team2SortCompetition extends SortCompetition {
 
     @Override
     public String greeting() {
-        return null;
+        return "Hello, we are Team 2 but we'll be #1";
     }
+
+
 }
