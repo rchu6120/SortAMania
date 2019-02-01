@@ -29,5 +29,13 @@ public class Team2SortCompetition extends SortCompetition {
         return "Hello, we are Team 2 but we'll be #1";
     }
 
+    public void mergeSortHelper (int[] arr, int left, int right, int[] temp){
+        if (left < right){
+            int mid = (left + right) / 2;
+            mergeSortHelper(arr,left,mid,temp);
+            mergeSortHelper(arr,mid+1, right, temp);
+            merge(arr,left,mid,right,temp);
+        }
+    }
 
 }
