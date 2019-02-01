@@ -25,7 +25,7 @@ public class sortHelper {
         return array;
     }
 
-    public static String printArr(String[] arr) {
+    public static String printStrArr(String[] arr) {
         String r= "";
         for(int i=0; i<arr.length; i++) {
             r= r+ "[" + arr[i] + "]";
@@ -34,7 +34,7 @@ public class sortHelper {
     }
 
 
-    public static String printIntArr(int[] arr) {
+    public static String printArr(int[] arr) {
         String r= "";
 
         for(int num : arr) {
