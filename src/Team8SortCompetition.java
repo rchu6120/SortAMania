@@ -1,4 +1,5 @@
 public class Team8SortCompetition extends SortCompetition {
+
     @Override
     public int challengeOne(int[] arr) {
         return 0;
@@ -70,6 +71,35 @@ public class Team8SortCompetition extends SortCompetition {
         for (k = from; k <= to; k++) {
             elements[k] = temp[k];
         }
+    }
+
+    public int[] randIntsArr(int count) {
+        int[] list= new int[count];
+        for (int i=0; i<list.length; i++)
+        {
+            list[i]=(int) (Math.random() *10001);
+        }
+        return list;
+    }
+
+    public String[] randomStringArr(int count, int length) {
+        String[] arr = new String[count];
+
+        while (count > 0) {
+            int i = 0;
+            String s = "";
+
+            while(i < length) {
+                char c = (char)((Math.random()*26) + 97);
+                s = s + c;
+                i++;
+            }
+
+            count--;
+            arr[count] = s;
+        }
+
+        return arr;
     }
 }
 

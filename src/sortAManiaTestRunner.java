@@ -1,4 +1,4 @@
-public class sortAManiaTestRunner {
+public class sortAManiaTestRunner extends Team8SortCompetition {
 
     SortCompetition team1 = new Team8SortCompetition();
     int[] randIntArr = randIntsArr(10000);
