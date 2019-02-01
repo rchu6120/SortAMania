@@ -30,6 +30,8 @@ public class Team2SortCompetition extends SortCompetition {
     }
 
 
+
+
     public void mergeSortHelper (int[] arr, int left, int right, int[] temp){
         if (left < right){
             int mid = (left + right) / 2;
