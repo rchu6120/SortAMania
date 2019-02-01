@@ -20,7 +20,7 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public String greeting() {
-        return null;
+        return "Hi Mr. Levin! We're Team 7 and we're going to win this FREAKING COMPETITION!";
     }
 }
 //
