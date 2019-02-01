@@ -2,9 +2,25 @@ public class sortHelper {
 
 
     public static int[] randIntArr(int Count) {
-        int[] array= new int[Count];
-        for(int i=0; i<array.length; i++){
-            array[i]= (int)(Math.random()*Count +1);
+        int[] array = new int[Count];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * Count + 1);
+        }
+        return array;
+    }
+
+    public static String[] randStringArr(int num, int length) {
+        String[] array = new String[num];
+        while (num > 0) {
+            int i = 0;
+            String s = "";
+            while (i < length) {
+                char c = (char) ((Math.random() * 26) + 97);
+                s = s + c;
+                i++;
+            }
+            num--;
+            array[num]= s;
         }
         return array;
     }
