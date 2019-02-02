@@ -20,7 +20,26 @@ public class Team8SortCompetition extends SortCompetition {
 
     @Override
     public int challengeTwo(String[] arr, String query) {
-        return 0;
+        int swapNum = -1;
+        while (swapNum != 0)
+        {
+            swapNum = 0;
+            for (int i = 0; i < arr.length - 1; i++)
+            {
+                int j = i + 1;
+                if (arr[i].compareToIgnoreCase(arr[j]) > 0)
+                {
+                    Swap(arr, i , j);
+                    swapNum++;
+                }
+            }
+        }
+        for(int a = 0; a < arr.length; a++){
+            if(arr[a].indexOf(query)>-1){
+                return a;
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -114,7 +133,12 @@ public class Team8SortCompetition extends SortCompetition {
 
         return arr;
     }
-
+    public static void Swap(String[] array, int x, int y)
+    {
+        String temp = array[x];
+        array[x] = array[y];
+        array[y] = temp;
+    }
     public static void printIntArr(int [] arr) {
         //prints array
     }
