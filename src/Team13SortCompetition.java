@@ -1,8 +1,12 @@
+
 public class Team13SortCompetition extends SortCompetition
 {
     @Override
-    public int challengeOne(int[] arr) {
-        return 0;
+    public int challengeOne(int[] arr)
+    {
+        Sorting_Algorithims.mergeSort(arr);
+        int median = arr[5000];
+        return median;
     }
 
     @Override
