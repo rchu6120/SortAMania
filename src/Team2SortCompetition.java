@@ -2,8 +2,7 @@ public class Team2SortCompetition extends SortCompetition {
     @Override
     public int challengeOne(int[] arr)
     {
-
-
+        BubbleSort(arr);
        int median= arr[4999];
        return median;
     }
@@ -76,7 +75,7 @@ public class Team2SortCompetition extends SortCompetition {
         }
     }
 
-    public class BubbleSort {
+    //public class BubbleSort {
         public static void swap(int[] arr, int i, int j) {
             int temp = arr[i];
             arr[i] = arr[j];
@@ -98,4 +97,4 @@ public class Team2SortCompetition extends SortCompetition {
         }
     }
 
-}
+//}
