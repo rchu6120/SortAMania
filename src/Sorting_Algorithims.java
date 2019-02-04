@@ -73,4 +73,28 @@ public class Sorting_Algorithims
             }
         }
     }
+
+   /* public static void selectionSort(String[] arr)
+    {
+        int minPos=0;
+        for(int curPos = 0;curPos<arr.length-1; curPos++)
+        {
+            minPos = curPos;
+            for(int i =curPos; i<arr.length;i++)
+            {
+                if(arr[minPos]>arr[i])
+                {
+                    minPos=i;
+                }
+
+            }
+            stringSwap(arr,curPos,minPos);
+        }
+    }
+    */
+    public static void stringSwap(String[] arr, int i, int j){
+
+
+
+    }
 }
