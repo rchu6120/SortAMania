@@ -195,9 +195,13 @@ public class Team14SortCompetition extends SortCompetition
         bubbleSort(arr);
         for (int x = 0; x < arr.length; x++)
         {
-            if (arr[x].indexOf(query) > 0 );
+            if (arr[x].indexOf(query) > 0 )
+            {
+                return x;
+            }
 
         }
+        return 8;
     }
 
 
@@ -218,6 +222,8 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeFive(Comparable[] arr, Comparable query)
     {
+
+
         return 0;
     }
 
