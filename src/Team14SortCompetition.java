@@ -201,7 +201,7 @@ public class Team14SortCompetition extends SortCompetition
             }
 
         }
-        return 8;
+        return -1;
     }
 
 
@@ -222,9 +222,11 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeFive(Comparable[] arr, Comparable query)
     {
-
-
-        return 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+            mergeSort(arr);
+        }
+        return -1;
     }
 
     @Override
@@ -281,5 +283,26 @@ public class Team14SortCompetition extends SortCompetition
             swap(arr,min,i);
         }
     }
+
+    public void mergeSort(Comparable [] arr)
+    {
+        int n = arr.length;
+        Comparable [] temp = new Comparable[n];
+        mergeSortHelper(arr,0,n-1,temp);
+    }
+
+    public void mergeSortHelper (Comparable [] arr, int left, int right, Comparable [] temp)
+    {
+        if (left > right)
+        {
+            int mid = (left + right)/2;
+            mergeSortHelper(arr, left, mid, temp);
+            mergeSortHelper(arr, mid+1, right, temp);
+            merge (arr, left, mid, right, temp);
+        }
+    }
+
+    public void merge ()
+
 
 }
