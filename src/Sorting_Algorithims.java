@@ -39,8 +39,16 @@ public class Sorting_Algorithims
         if(from<to)
         {
             int middle = (from + to)/2;
-            mergeSortHelper(arr,from,m)
+            mergeSortHelper(arr,from,middle, temp);
+            mergeSortHelper(arr,from,middle,temp);
+            merge(arr, from, middle, to, temp);
         }
+    }
+    public static void mergeSort(int[] arr)
+    {
+        int n = arr.length;
+        int[] temp = new int[n];
+        mergeSortHelper(arr, 0,n - 1, temp);
     }
 
     public static void intSwap(int[] arr, int i, int j)
