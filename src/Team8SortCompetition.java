@@ -4,14 +4,15 @@ public class Team8SortCompetition extends SortCompetition {
     public int challengeOne(int[] arr) {
         int length = arr.length;
 
-        for (int gap = length/2; gap > 0; gap/= 2) {
-            for (int i = gap; i < length; i++) {
+        for (int gap = length/2; gap > 0; gap /= 2) {
+            for (int i = gap; i < length; i += 1) {
                 int temp = arr[i];
 
-                for (int j = i; j >= gap && arr[j - gap] > temp; j-= gap) {
+                int j;
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
                     arr[j] = arr[j - gap];
-                    arr[j] = temp;
                 }
+                arr[j] = temp;
             }
         }
 

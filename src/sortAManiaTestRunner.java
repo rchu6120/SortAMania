@@ -3,7 +3,7 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
     public static void main(String[] args) {
 
         SortCompetition team1 = new Team8SortCompetition();
-        int[] randIntArr = randIntsArr(10);
+        int[] randIntArr = randIntsArr(9);
         //String[] randStringArr = randomStringArr(10000, 5);
 
         System.out.println("Unsorted");
