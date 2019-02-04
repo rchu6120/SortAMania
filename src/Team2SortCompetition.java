@@ -1,7 +1,10 @@
 public class Team2SortCompetition extends SortCompetition {
     @Override
-    public int challengeOne(int[] arr) {
-        return 0;
+    public int challengeOne(int[] arr)
+    {
+
+       int median= arr[4999];
+       return median;
     }
 
     @Override
