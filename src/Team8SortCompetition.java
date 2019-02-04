@@ -15,7 +15,11 @@ public class Team8SortCompetition extends SortCompetition {
             }
         }
 
-        //find median value and return it
+        if (length%2 != 0) {
+            return (int)arr[length/2];
+        } else {
+            return (int)(arr[(length - 1)/2] + arr[length/2])/2;
+        }
     }
 
     @Override
@@ -105,7 +109,7 @@ public class Team8SortCompetition extends SortCompetition {
         }
     }
 
-    public int[] randIntsArr(int count) {
+    public static int[] randIntsArr(int count) {
         int[] list= new int[count];
         for (int i=0; i<list.length; i++)
         {
@@ -114,7 +118,7 @@ public class Team8SortCompetition extends SortCompetition {
         return list;
     }
 
-    public String[] randomStringArr(int count, int length) {
+    public static String[] randomStringArr(int count, int length) {
         String[] arr = new String[count];
 
         while (count > 0) {
@@ -139,8 +143,12 @@ public class Team8SortCompetition extends SortCompetition {
         array[x] = array[y];
         array[y] = temp;
     }
+
     public static void printIntArr(int [] arr) {
-        //prints array
+        for (int num:arr) {
+            System.out.println(num + " ");
+        }
+        System.out.println();
     }
 }
 
