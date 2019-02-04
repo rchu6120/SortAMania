@@ -72,14 +72,14 @@ public class Team12SortCompetition extends SortCompetition {
         }
 
     //makes an array of 1000 random integers
-    public static int[] randIntArr ( int count)
-    {
+    public static int[] randIntArr ( int count) {
         int[] num = new int[count];
         for (int i = 0; i < count; i++) {
             num[i] = (int) (Math.random() * 10001);
         }
-
-        public static int getMedian(int [] arr)
+        return num;  //check this return statement again
+    }
+    public static int getMedian(int [] arr)
         {
         // to find the median
         int middle = arr.length / 2;
@@ -92,4 +92,4 @@ public class Team12SortCompetition extends SortCompetition {
     }
 
     }
-}
+
