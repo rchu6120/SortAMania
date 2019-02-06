@@ -6,12 +6,12 @@ public class Runner {
         SortCompetition team7= new Team7SortCompetition();
 
         //Generates random int and Strings
-        int[] randIntArr= sortHelper.randIntArr(10000);
-        String[] randStringArr= sortHelper.randStringArr(10000,5);
+        int[] randIntArr= Team7SortCompetition.randIntArr(10000);
+        String[] randStringArr= Team7SortCompetition.randStringArr(10000,5);
 
         //Notifies user that the generated arrays are unsorted and prints out the unsorted arrays
-        System.out.println("Unsorted");
-        sortHelper.printArr(randIntArr);
+        System.out.println(Team7SortCompetition.printArr(randIntArr));
+
 
         //Prints time of ChallengeOne
         long time= System.currentTimeMillis();
@@ -22,12 +22,11 @@ public class Runner {
         System.out.println("Median equals: " + median);
 
         //Prints out sorted Int Array
-        System.out.println("Sorted");
-        sortHelper.printArr(randIntArr);
+        System.out.println(Team7SortCompetition.printArr(randIntArr));
+        System.out.println("this is sorted");
 
-        //Prints out sorted String Array
-        System.out.println("Sorted");
-        sortHelper.printStrArr(randStringArr);
+
+
 
 
 
