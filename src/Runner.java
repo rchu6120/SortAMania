@@ -1,22 +1,31 @@
 public class Runner {
-
-    public static void main(String [] args)
-    {
-        int[] numbers = new int[10000];
-        for (int i = 0; i <10000; i++)
-        {
-            numbers[i]=(int) (Math.random()*10000 +1);
+    public static int[] randomIntsArr(int length){
+        int[] arr = new int[length];
+        for(int i = 0; i < length; i++){
+            arr [i] = (int)(Math.random() *10000 +1);
         }
-            int a=0;
-
-        //while (a<20)
-        //{
-            //System.out.println(numbers[a]);
-           // a=a+1;
-       //}
-        System.out.println(Team2SortCompetition.challengeOne(numbers));
+        return arr;
     }
 
+    public static String[] randomStringArr(String arr){
 
+    }
 
+    public static void main (String[] args) {
+        SortCompetition team2 = new Team2SortCompetition();
+        int[] randomIntsArr = randomIntsArr(10000);
+        String[] randStringArr = randomStringArr(10000, 5);
+
+        System.out.println("Unsorted");
+        printArr(randStringArr);
+
+        long time = System.currentTimeMillis();
+        int median = team2.challengeOne(randIntArr);
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
+        System.out.println("Median equals: " + median);
+
+        System.out.println("Sorted");
+        printArr(randIntArr);
+    }
 }
