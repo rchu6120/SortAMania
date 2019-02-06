@@ -199,7 +199,7 @@ public class Team12SortCompetition extends SortCompetition {
     }
 
     //Random Generators
-    public static int[] randomIntArr(int count) {
+    public static int[] randomIntsArr(int count) {
         int[] num = new int[count];
         for (int i = 0; i < count; i++) {
             num[i] = (int) (Math.random() * 10001);
