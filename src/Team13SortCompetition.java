@@ -26,7 +26,7 @@ public class Team13SortCompetition extends SortCompetition
             Sorting_Algorithims.mergeSort(arr[i]);
         }
         Sorting_Algorithims.doubleMergeSort(arr);
-        int median = arr[500][500];
+        int median = (((arr[500][499]+arr[500][500])/2)+((arr[499][499]+arr[499][500])/2))/2;
         return median;
     }
     //sort with merge
