@@ -9,7 +9,10 @@ public class TestRunner
         printArr(randIntArr);
 
         long time = System.currentTimeMillis();
-        int median = team11.challengeOne(randIntArr);
+        int median = team11.challengeOne(randIntArr);\
+
+
+        gf
 
     }
 }
