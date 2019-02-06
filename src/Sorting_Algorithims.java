@@ -127,7 +127,7 @@ public class Sorting_Algorithims {
         }
     }
 
-   /* public static void selectionSort(String[] arr)
+   public static void selectionSort(String[] arr)
     {
         int minPos=0;
         for(int curPos = 0;curPos<arr.length-1; curPos++)
@@ -135,7 +135,7 @@ public class Sorting_Algorithims {
             minPos = curPos;
             for(int i =curPos; i<arr.length;i++)
             {
-                if(arr[minPos]>arr[i])
+                if(arr[minPos].compareTo( arr[i]) < 0)
                 {
                     minPos=i;
                 }
@@ -144,10 +144,11 @@ public class Sorting_Algorithims {
             stringSwap(arr,curPos,minPos);
         }
     }
-    */
+    String [] TestArr = {"Arr", "Tell", "weather","car"};
     public static void stringSwap(String[] arr, int i, int j){
-
-
+        String a = arr[i];
+        arr[i] = arr[j];
+        arr[j] = a;
 
     }
 }
