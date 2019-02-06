@@ -21,17 +21,17 @@ public class Team12SortCompetition extends SortCompetition {
         public int challengeFour ( int[][] arr){
             {
                 int[] medval= new int[arr.length];
-                for(int b=0; b<arr.length;b++)
+                for(int j=0; j<arr.length;j++)
                 {
-                    medval[b]=challengeThree(arr[b]);
+                    medval[j]=challengeThree(arr[j]);
                 }
-                for(int a=0;a<medval.length;a++)
+                for(int i=0;i<medval.length;i++)
                 {
-                    for (int b = a; b > 0; b--)
+                    for (int j = i; j > 0; j--)
                     {
-                        if(medval[b] < medval[b-1])
+                        if(medval[j] < medval[j-1])
                         {
-                            swap(medval,b,b-1);
+                            swap(medval,j,j-1);
                         }
                     }
                 }
