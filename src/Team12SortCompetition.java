@@ -19,7 +19,24 @@ public class Team12SortCompetition extends SortCompetition {
 
         @Override
         public int challengeFour ( int[][] arr){
-            return 0;
+            {
+                int[] medval= new int[arr.length];
+                for(int b=0; b<arr.length;b++)
+                {
+                    medval[b]=challengeThree(arr[b]);
+                }
+                for(int a=0;a<medval.length;a++)
+                {
+                    for (int b = a; b > 0; b--)
+                    {
+                        if(medval[b] < medval[b-1])
+                        {
+                            swap(medval,b,b-1);
+                        }
+                    }
+                }
+                return getMedian(medval);
+            }
         }
 
         @Override
@@ -59,6 +76,10 @@ public class Team12SortCompetition extends SortCompetition {
         public String greeting () {
             return "Hello! We are team 12 :)";
         }
+
+        // all algorithms being used above
+
+
         public static void merge(int[] elements, int from, int mid, int to, int[] temp){
             int i = from;
             int j = mid + 1;
@@ -345,5 +366,36 @@ public class Team12SortCompetition extends SortCompetition {
         return -1;
     }
 
+    public static void printArr(int [] arr)
+    {
+        String out = "";
+        for (int i = 0; i < arr.length; i++ )
+        {
+            out = out + "[" + arr[i] + "], ";
+        }
+        System.out.println(out+"\n");
     }
+
+    public static void printArr(double [] arr)
+    {
+        String out = "";
+        for (int i = 0; i < arr.length; i++ )
+        {
+            out = out + "[" + arr[i] + "], ";
+        }
+        System.out.println(out+"\n");
+    }
+
+    public static void printArr(String [] arr)
+    {
+        String out = "";
+        for (int i = 0; i < arr.length; i++ )
+        {
+            out = out + "[" + arr[i] + "], ";
+        }
+        System.out.println(out+"\n");
+    }
+
+
+}
 
