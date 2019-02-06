@@ -1,3 +1,4 @@
+
 public class Team4SortCompetition extends SortCompetition{
 
     public int challengeOne(int[] arr);
@@ -19,5 +20,27 @@ public class Team4SortCompetition extends SortCompetition{
     public abstract String greeting();
 	return "We are Team 4 and here is our Sort A Mania!";
 
+
+	//challenge 1
+public static void main(String args[]){
+    Random rgen= new Random();
+    int[]nums= new int [10,001];
+    for (int i=0; i<nums.length; i++){
+        nums [i]=i;
+    }
+    for (int i=0; i<nums.length; i++){
+        int randomPosition = rgen.nextInt(nums.length);
+        int temp = nums[i];
+        nums [i] = nums[randomPosition];
+        nums[randomPosition] = temp;
+    }
+    for(int i=0; i<nums.length; i++){
+        System.out.println(nums i);
+    }
+}
+public static double findMedian(int y[], int x){
+
+
+}
 
 }
