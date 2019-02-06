@@ -19,5 +19,20 @@ public class Team4SortCompetition extends SortCompetition{
     public abstract String greeting();
 	return "We are Team 4 and here is our Sort A Mania!";
 
+	import java.util.Arrays;
+	import java.util.Random;
+
+	public class challengeTwo {
+	    public static int[]randIntArr(int count){
+	        int [] arr = new int [count];
+	        int random = (int)(Math.random()*10000);
+	        for (int i = 0; i < arr.length; i ++){
+	            arr [i] = (int)(Math.random()*10001);
+            }
+               return arr;
+        }
+
+    }
+
 
 }
