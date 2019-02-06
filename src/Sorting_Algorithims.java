@@ -46,27 +46,17 @@ public class Sorting_Algorithims {
         int i = from;
         int j = mid + 1;
         int k = to;
-        int a = 0;
         while (i <= mid && j <= to)
         {
-                if (arr2[i][a] == arr2[j][a])
+            if(findMedian(arr2,i) < findMedian(arr2,j))
+            {
+                temp[k] = arr2[i];
+                i++;
+            }
+            else
                 {
-                    a++;
-                }
-                else
-                {
-                    if(arr2[i][a]<arr2[j][a])
-                    {
-                        temp[k] = arr2[i];
-                        i++;
-                        a=0;
-                    }
-                    else
-                    {
-                        temp[k] = arr2[j];
-                        j++;
-                        a=0;
-                    }
+                    temp[k] = arr2[j];
+                    j++;
                 }
         }
         while(i<= mid)
@@ -99,7 +89,21 @@ public class Sorting_Algorithims {
         int [][] temp = new int[n][m];
         doubleMergeSortHelper(arr2,0,n-1,temp);
     }
-
+    public static int findMedian(int[][] arr, int where)
+    {
+        int length = arr[where].length;
+        int middle = length/2;
+        int median = 0;
+        if(length % 2 == 0)
+        {
+            median = (arr[where][middle]+arr[where][middle-1])/2;
+        }
+        else
+        {
+            median = arr[where][middle];
+        }
+        return median;
+    }
     public static void intSwap(int[] arr, int i, int j)
     {
         int a = arr[i];
