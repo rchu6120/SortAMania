@@ -3,19 +3,12 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public int challengeTwo(String[] arr, String query) {
-        String[] arr1 = new String[];
-        public challengeTwo(String[] arr1){
-            this.arr1 = arr1;
-        }
-        for (int i = 0; i < arr1.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (charArray[j] < charArray[i]) {
-                    char temp = charArray[i];
-                    charArray[i] = arr[j];
-                    charArray[j] = temp;
-                }
+        for (int i = 0; i<arr.length; i++){
+            if(arr[i].indexOf(query) > 0){
+                return i;
             }
         }
+        return -1;
     }
 
     public int challengeThree(int[] arr) {
