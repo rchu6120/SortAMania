@@ -49,7 +49,22 @@ public class Team8SortCompetition extends SortCompetition {
 
     @Override
     public int challengeThree(int[] arr) {
-        return 0;
+
+        int length = arr.length;
+
+        for (int i = 1; i < length; i++) {
+            for (int count = i; count > 0; count--) {
+                if (arr[count] < arr[count-1]) {
+                    swapInt(arr, count, count-1);
+                }
+            }
+        }
+
+        if (length%2 != 0) {
+            return (int)arr[length/2];
+        } else {
+            return (int)(arr[(length - 1)/2] + arr[length/2])/2;
+        }
     }
 
     @Override
@@ -144,6 +159,13 @@ public class Team8SortCompetition extends SortCompetition {
         array[x] = array[y];
         array[y] = temp;
     }
+
+    public static void swapInt (int[] list1, int a, int b) {
+        int temp = list1[a];
+        list1[a] = list1[b];
+        list1[b] = temp;
+    }
+
 
     public static void printIntArr(int [] arr) {
         for (int num:arr) {
