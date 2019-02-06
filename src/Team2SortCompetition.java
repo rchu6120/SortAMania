@@ -82,6 +82,12 @@ public class Team2SortCompetition extends SortCompetition {
             arr[j] = temp;
         }
 
+    public static void sswap(String[] arr, int i, int j) {
+        String temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
         public static void BubbleSort(int[] arr) {
             int[] arrTemp = arr;
             int swaps = -1;
@@ -93,6 +99,31 @@ public class Team2SortCompetition extends SortCompetition {
                         swaps++;
                     }
                 }
+            }
+        }
+
+        public static void quickSort(String[] arr,int start, int end)
+        {
+            int i=start;
+            int j=end;
+            if(j-i>=1)
+            {
+                String pivot= arr[i];
+                while(j>i)
+                {
+                    while (arr[i].compareTo(pivot) <= 0 && i < end && j > i) {
+                        i++;
+
+                    }
+                    while (arr[j].compareTo(pivot) >= 0 && j > start && j >= i){
+                        j--;
+                    }
+                    if (j > i)
+                        sswap(arr, i, j);
+                }
+                sswap(arr, start, j);
+                quickSort(arr, start, j - 1);
+                quickSort(arr, j + 1, end);
             }
         }
     }
