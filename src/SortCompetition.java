@@ -2,7 +2,8 @@
 //Name your class Team#SortCompetition.
 //e.g. Team 1 should name their class Team1SortCompetition
 public abstract class
-SortCompetition {
+SortCompetition
+{
 	
 	public abstract int challengeOne(int[] arr);
 

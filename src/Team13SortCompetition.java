@@ -1,4 +1,3 @@
-
 public class Team13SortCompetition extends SortCompetition
 {
     @Override
@@ -8,7 +7,6 @@ public class Team13SortCompetition extends SortCompetition
         int median = arr[5000];
         return median;
     }
-
     @Override
     public int challengeTwo(String[] arr, String query) {
         return 0;
@@ -21,8 +19,15 @@ public class Team13SortCompetition extends SortCompetition
     }
     //Insertion sort for the win.
     @Override
-    public int challengeFour(int[][] arr) {
-        return 0;
+    public int challengeFour(int[][] arr)
+    {
+        for(int i = 0; i< arr.length;i++)
+        {
+            Sorting_Algorithims.mergeSort(arr[i]);
+        }
+        Sorting_Algorithims.doubleMergeSort(arr);
+        int median = arr[500][500];
+        return median;
     }
     //sort with merge
     @Override
