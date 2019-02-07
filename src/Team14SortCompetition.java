@@ -60,7 +60,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeOne(int[] arr)
     {
-        timSort(arr,arr.length);
+        insertionSort(arr,0, arr.length-1);
         return getMedian(arr);
 
     }

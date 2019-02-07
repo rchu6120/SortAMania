@@ -31,6 +31,15 @@ public class Main
         return arr;
     }
 
+    public static int[][] randIntArr(int row, int col) {
+        int[][] arr = new int[row][col];
+        for(int x = 0; x < row; x++) {
+            for (int y = 0; y < col; y++)
+                arr[x][y] = (int) (Math.random() * 10001);
+        }
+        return arr;
+    }
+
     public static double[] randDoubleArr(int count) {
         double[] arr = new double[count];
         for (int x = 0; x < count; x++)
@@ -66,6 +75,16 @@ public class Main
             out = out + "[" + arr[i] + "], ";
         }
         System.out.println(out+"\n");
+    }
+
+    public static void printArr(int [][] arr) {
+        String out = "";
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                out = out + "[" + arr[i][j] + "], ";
+            }
+            System.out.println(out + "\n");
+        }
     }
 
     public static void printArr(double [] arr)
@@ -150,13 +169,14 @@ public class Main
 
         public static void main(String[] args)
     {
-        /**
+
         SortCompetition team14 = new Team14SortCompetition();
-        int[] randIntArr = randomIntsArr(10000);
-        String[] randStringArr = randomStringArr(10000, 5);
+        int[] randIntArr = randIntArr(10000);
+        int[][] randIntArrArr = randIntArr(10000, 5000);
+        String[] randStringArr = randStringArr(10000, 5);
 
         System.out.println("Unsorted");
-        Team14SortCompetition.printArr(randIntArr);
+        printArr(randIntArr);
 
         long time = System.currentTimeMillis();
         int median = team14.challengeOne(randIntArr);
@@ -165,8 +185,7 @@ public class Main
         System.out.println("Median equals: " + median);
 
         System.out.println("Sorted");
-        Team14SortCompetition.printArr(randIntArr);
-         */
+        printArr(randIntArr);
     }
 }
 
