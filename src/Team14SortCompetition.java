@@ -214,8 +214,10 @@ public class Team14SortCompetition extends SortCompetition
     }
 
     @Override
-    public int challengeFour(int[][] arr) {
-        return 0;
+    public int challengeFour(int[][] arr)
+    {
+
+
     }
 
     @Override
