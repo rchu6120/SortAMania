@@ -49,7 +49,7 @@ public class Runner {
         System.out.println("Index of query equals: " + query);
 >>>>>>> Stashed changes
 
-
+//
 
 
 
