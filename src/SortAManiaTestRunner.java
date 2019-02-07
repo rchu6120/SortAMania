@@ -4,7 +4,7 @@ public class SortAManiaTestRunner {
     {
         SortCompetition team4 = new Team4SortCompetition( );
         //create instance of class
-        int[] randIntArr = randomIntsArr(num:10000);
+        int[] randIntArr = randomIntsArr(num: 10000);
         //initialize a random int array
         String[] randStringArr = randomStringArr(num: 10000, length:5);
         // initialize a random string array
