@@ -93,7 +93,7 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public static void mergeSort(String[] arr){
-        if(arr.length > 2){
+        if(arr.length >= 2){
             String[] left = new String[arr.length/2];
             String[] right = new String[arr.length- arr.length/2];
             for (int i = 0; i< left.length; i++){
