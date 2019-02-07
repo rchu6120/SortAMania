@@ -69,7 +69,34 @@ public class Team8SortCompetition extends SortCompetition {
 
     @Override
     public int challengeFour(int[][] arr) {
-        return 0;
+        int[] medianArr = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            medianArr[i] = challengeOne(arr[i]);
+        }
+
+        for (int j = 0; j < medianArr.length; j++) {
+            for (int k = j; k > 0; k--) {
+                if (medianArr[j] < medianArr[j-1]) {
+                    swapInt(medianArr, j, j-1);
+                }
+            }
+        }
+
+        int index = 0;
+
+
+        //sorting medianArr
+        challengeOne(medianArr);
+
+        int length = medianArr.length;
+
+        if (length%2 != 0) {
+            return (int)medianArr[length/2];
+        } else {
+            return (int)(medianArr[(length - 1)/2] + medianArr[length/2])/2;
+        }
+
     }
 
     @Override
@@ -82,8 +109,7 @@ public class Team8SortCompetition extends SortCompetition {
         return null;
     }
 
-    private static void mergeSortHelper(int[] elements,
-                                        int from, int to, int[] temp)
+    private static void mergeSortHelper(int[] elements, int from, int to, int[] temp)
     {
         if (from < to)
         {
@@ -188,12 +214,33 @@ public class Team8SortCompetition extends SortCompetition {
         list1[b] = temp;
     }
 
+    public static void swapRows(int array[][], int rowA, int rowB) {
+        int temp[] = array[rowA];
+        array[rowA] = array[rowB];
+        array[rowB] = temp;
+    }
+
 
     public static void printIntArr(int [] arr) {
         for (int num:arr) {
             System.out.println(num + " ");
         }
         System.out.println();
+    }
+
+    public static void print2DIntArr(int[][] arr) {
+        String line = "";
+
+        for (int i = 0; i < arr.length; i++) {
+            String row = "";
+            for (int j = 0; j < arr[i].length; j++) {
+                row += arr[i][j] + "    ";
+            }
+
+            line += row + "\n";
+        }
+
+        System.out.println(line);
     }
 }
 
