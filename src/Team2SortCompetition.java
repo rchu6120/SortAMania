@@ -82,7 +82,7 @@ public class Team2SortCompetition extends SortCompetition {
             arr[j] = temp;
         }
 
-    public static void sswap(String[] arr, int i, int j) {
+    public static void swap(String[] arr, int i, int j) {
         String temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -119,9 +119,9 @@ public class Team2SortCompetition extends SortCompetition {
                         j--;
                     }
                     if (j > i)
-                        sswap(arr, i, j);
+                        swap(arr, i, j);
                 }
-                sswap(arr, start, j);
+                swap(arr, start, j);
                 quickSort(arr, start, j - 1);
                 quickSort(arr, j + 1, end);
             }
