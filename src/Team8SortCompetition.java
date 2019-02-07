@@ -153,6 +153,15 @@ public class Team8SortCompetition extends SortCompetition {
 
         return arr;
     }
+
+    public Object[] randomObjArr(int num){
+        Object[] objects = new Object[num];
+        for (int i = 0; i < num; i++){
+            objects[i] = new Object();
+        }
+        return objects;
+    }
+
     public static void Swap(String[] array, int x, int y)
     {
         String temp = array[x];
