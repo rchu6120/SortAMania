@@ -60,7 +60,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeOne(int[] arr)
     {
-        insertionSort(arr);
+        timSort(arr,arr.length);
         return getMedian(arr);
 
     }
@@ -100,7 +100,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeThree(int[] arr)
     {
-        insertionSort(arr);
+        timSort(arr,arr.length);
         return getMedian(arr);
     }
 
@@ -124,12 +124,12 @@ public class Team14SortCompetition extends SortCompetition
             {
                 temp[i]=arr[i][j];
             }
-            insertionSort(temp);
+            insertionSort(temp,0,temp.length-1);
             median[x] = getMedian(temp);
             x++;
             j++;
         }
-        insertionSort(median);
+        insertionSort(median,0,median.length-1);
         return getMedian(median);
     }
 
@@ -170,7 +170,8 @@ public class Team14SortCompetition extends SortCompetition
         }
     }
 
-    public static void bubbleSort(String[] list1) {
+    public static void bubbleSort(String[] list1)
+    {
         int swap = 1;
         int y;
         while (swap != 0) {
@@ -185,7 +186,8 @@ public class Team14SortCompetition extends SortCompetition
         }
     }
 
-    public static void selectionSort(double[] arr) {
+    public static void selectionSort(double[] arr)
+    {
         int i; int j; int min;
         for (i = 0; i < arr.length-1; i++)
         {
@@ -256,8 +258,9 @@ public class Team14SortCompetition extends SortCompetition
         }
     }
 
-    private static void merge(int[] elements, int from, int mid, int to, int[] temp)
+    private static void merge(int[] elements, int from, int mid, int to)
     {
+        int [] temp = new int[elements.length];
         int i = from;
         int j = mid + 1;
         int k = from;
@@ -290,12 +293,24 @@ public class Team14SortCompetition extends SortCompetition
         }
     }
 
+
+    // arr is array to be sorted, n is the length of the array.
     public static int Run = 32;
     public static void timSort (int [] arr, int n)
     {
         for (int i = 0; i < n; i+= Run)
         {
             insertionSort(arr, i, Math.min(i+31,(n-1)));
+        }
+
+        for (int size = Run; size < n; size = 2*size)
+        {
+            for (int left = 0; left < n; left += 2*size)
+            {
+                int mid = left+size-1;
+                int right = Math.min((left+2*size-1),(n-1));
+                merge(arr, left, mid,right);
+            }
         }
     }
 }
