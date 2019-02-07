@@ -115,8 +115,22 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeFour(int[][] arr)
     {
-
-
+        int x = 0;
+        int[] median = new int[1000];
+        int[] temp = new int[1000];
+        for (int j = 0; j < 1000; j++)
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                temp[i]=arr[i][j];
+            }
+            insertionSort(temp);
+            median[x] = getMedian(temp);
+            x++;
+            j++;
+        }
+        insertionSort(median);
+        return getMedian(median);
     }
 
     /**
