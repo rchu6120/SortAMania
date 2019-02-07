@@ -33,9 +33,9 @@ public class Runner {
         System.out.println(Team7SortCompetition.printArr(challengeOne));
         System.out.println("Sorted");
 
-        //Prints time of challengetwo
+        //Prints time of challengeTwo
         long time2= System.currentTimeMillis();
-        int query= team7.challengeTwo(challengeTwo,"abcde");
+        int query= team7.challengeTwo(challengeTwo,"aalpe");
         //Prints out sorted String Array (ChallengeTwo)
         System.out.println(Team7SortCompetition.printStrArr(challengeTwo));
         System.out.println("Sorted");

@@ -1,3 +1,4 @@
+import java.util.Collections;
 
 public class Team7SortCompetition extends SortCompetition {
 
@@ -16,12 +17,14 @@ public class Team7SortCompetition extends SortCompetition {
 
     public int challengeTwo(String[] arr, String query) {
         mergeSort(arr);
-        for (int i = 0; i<arr.length; i++){
-            if(arr[i].indexOf(query) > 0){
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].indexOf(query) < 0) {
+                return -1;
+            }else{
                 return i;
             }
         }
-        return -1;
+        return 0;
     }
 
     public int challengeThree(int[] arr) {
@@ -33,7 +36,9 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
-        return 0;
+        Collections.sort(arr);
+
+
     }
 
     public String greeting() {
