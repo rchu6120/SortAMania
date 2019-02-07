@@ -105,7 +105,7 @@ public class Team14SortCompetition extends SortCompetition
     }
 
     /**
-     * challengeFour: Mu lti-Dimensional sorting
+     * challengeFour: Multi-Dimensional sorting
      * Data Set - a multi-dimensional array int[1000][1000] all elements are random integers between 0-10000
      * Task: Sort each sub-array and then sort the arrays by their median value
      * @param arr
@@ -152,22 +152,21 @@ public class Team14SortCompetition extends SortCompetition
         return -1;
     }
 
-
     //__________________________________________________________________________________________________________________
 
                                                                                                                         //Sorting Algorithms
-    public static void insertionSort(int [] in)
+    public static void insertionSort(int [] in, int left, int right)
     {
-        for (int i =0; i < in.length; i++)
+        for (int i = left + 1; i <= right; i++)
         {
-            for(int a = i; a >0; a--)
+            int temp = in[i];
+            int j = i-1;
+            while (in[j] > temp && j >= left)
             {
-                if (in[a]<in[a-1])
-                {
-                    swap(in,a,a-1);
-                }
-                else a = 0;
+                swap(in,j,j+1);
+                j--;
             }
+            in[j+1] = temp;
         }
     }
 
@@ -225,7 +224,6 @@ public class Team14SortCompetition extends SortCompetition
         int i = from;
         int j = mid + 1;
         int k = from;
-
         while (i <= mid && j <= to)
         {
             if (elements[i].compareTo(elements[j])<0)
@@ -240,26 +238,64 @@ public class Team14SortCompetition extends SortCompetition
             }
             k++;
         }
-
         while (i <= mid)
         {
             temp [k] = elements[i];
             i++;
             k++;
         }
-
         while (j <= to)
         {
             temp [k] = elements[j];
             j++;
             k++;
         }
-
         for (k = from; k <= to; k++)
         {
             elements[k] = temp [k];
         }
     }
 
+    private static void merge(int[] elements, int from, int mid, int to, int[] temp)
+    {
+        int i = from;
+        int j = mid + 1;
+        int k = from;
+        while (i <= mid && j <= to)
+        {
+            if (elements[i] < elements[j]) {
+                temp[k] = elements[i];
+                i++;
+            } else {
+                temp[k] = elements[j];
+                j++;
+            }
+            k++;
+        }
+        while (i <= mid)
+        {
+            temp[k] = elements[i];
+            i++;
+            k++;
+        }
+        while (j <= to)
+        {
+            temp[k] = elements[j];
+            j++;
+            k++;
+        }
+        for (k = from; k <= to; k++)
+        {
+            elements[k] = temp[k];
+        }
+    }
 
+    public static int Run = 32;
+    public static void timSort (int [] arr, int n)
+    {
+        for (int i = 0; i < n; i+= Run)
+        {
+            insertionSort(arr, i, Math.min(i+31,(n-1)));
+        }
+    }
 }
