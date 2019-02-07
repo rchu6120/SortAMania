@@ -85,8 +85,7 @@ public class Team8SortCompetition extends SortCompetition {
 
         int index = 0;
 
-
-        //sorting medianArr
+        //how do we swap arrays based on their medians?
         challengeOne(medianArr);
 
         int length = medianArr.length;
