@@ -4,7 +4,7 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
 
         SortCompetition team1 = new Team8SortCompetition();
         int[] randIntArr = randIntsArr(10000);
-        //String[] randStringArr = randomStringArr(10000, 5);
+        String[] randStringArr = randomStringArr(10000, 5);
 
         System.out.println("Unsorted");
         printIntArr(randIntArr);
@@ -19,5 +19,13 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
 
         System.out.println("Sorted");
         printIntArr(randIntArr);
+
+        System.out.println("Unsorted");
+        printStringArr(randStringArr);
+
+        int query = team1.challengeTwo(randStringArr, "qwert");
+        System.out.println("Sorted");
+        printStringArr(randStringArr);
+        System.out.println(""+query+"");
     }
 }
