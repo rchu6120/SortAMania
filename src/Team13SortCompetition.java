@@ -29,10 +29,20 @@ public class Team13SortCompetition extends SortCompetition
         int median = (((arr[500][499]+arr[500][500])/2)+((arr[499][499]+arr[499][500])/2))/2;
         return median;
     }
-    //sort with merge
     @Override
-    public int challengeFive(Comparable[] arr, Comparable query) {
-        return 0;
+    public int challengeFive(Comparable[] arr, Comparable query)
+    {
+        int re=-1;
+        Sorting_Algorithims.objMergeSort(arr);
+        for(int i = 0; i<arr.length;i++)
+        {
+            if(arr[i] == query)
+            {
+                re = i;
+                return i;
+            }
+        }
+        return re;
     }
 
     @Override

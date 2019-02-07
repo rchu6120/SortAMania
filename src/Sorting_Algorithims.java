@@ -111,7 +111,6 @@ public class Sorting_Algorithims {
         arr[j] = a;
 
     }
-
     public static void insertionSort(int[] arr)
     {
         for(int curCheck = 0; curCheck <arr.length-1;curCheck++)
@@ -150,5 +149,62 @@ public class Sorting_Algorithims {
         arr[i] = arr[j];
         arr[j] = a;
 
+    }
+
+    public Comparable[] randomThingArr(int num)
+    {
+        Comparable[] things = new Comparable[num];
+        for(int i = 0; i<num;i++)
+        {
+            things[i] = new Comparable();
+        }
+        return things;
+    }
+    public static void objMerge(Comparable[] arr3, int from, int mid, int to, Comparable[] temp)
+    {
+        int a = from;
+        int b = mid+1;
+        int c = from;
+
+        while(a<= mid && b <= to)
+        {
+            if (arr3[a].compareTo(arr3[b])>-1)
+            {
+                temp[c] = arr3[a];
+            }
+            else
+            {
+                temp[c] = arr3[b];
+            }
+            c++;
+        }
+        while(a <= mid)
+        {
+            temp[c] = arr3[a];
+            a++;
+            c++;
+        }
+        while (b<= to)
+        {
+            temp[c] = arr3[b];
+            c++;
+            b++;
+        }
+    }
+    public static void objMergeSortHelper(Comparable[] arr3, int from, int to , Comparable[] temp)
+    {
+        if(from<to)
+        {
+            int middle = (from+to)/2;
+            objMergeSortHelper(arr3, from, middle, temp);
+            objMergeSortHelper(arr3, from, middle, temp);
+            objMerge(arr3, from, middle, to, temp);
+        }
+    }
+    public static void objMergeSort(Comparable[] arr3)
+    {
+        int n = arr3.length;
+        Comparable[] temp = new Comparable[n];
+        objMergeSortHelper(arr3,0,n-1,temp);
     }
 }
