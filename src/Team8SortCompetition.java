@@ -166,7 +166,6 @@ public class Team8SortCompetition extends SortCompetition {
         return arr;
     }
 
-    public static void swapString(String[] array, int x, int y)
 
     public Object[] randomObjArr(int num){
         Object[] objects = new Object[num];
