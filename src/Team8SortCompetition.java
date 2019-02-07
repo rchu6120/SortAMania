@@ -34,7 +34,7 @@ public class Team8SortCompetition extends SortCompetition {
                 int j = i + 1;
                 if (arr[i].compareToIgnoreCase(arr[j]) > 0)
                 {
-                    Swap(arr, i , j);
+                    swapString(arr, i , j);
                     swapNum++;
                 }
             }
@@ -69,7 +69,27 @@ public class Team8SortCompetition extends SortCompetition {
 
     @Override
     public int challengeFour(int[][] arr) {
-        return 0;
+        int[] arrMedians = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            arrMedians[i] = challengeOne(arr[i]);
+        }
+
+        for (int j = 0; j < arrMedians.length; j++) {
+            for (int k = j; k > 0; k--) {
+                if (arrMedians[k] < arrMedians[k - 1]) {
+                    swapInt(arrMedians, j, j-1);
+                }
+            }
+        }
+
+        int length = arrMedians.length;
+
+        if (length%2 != 0) {
+            return (int)arrMedians[length/2];
+        } else {
+            return (int)(arrMedians[(length - 1)/2] + arrMedians[length/2])/2;
+        }
     }
 
     @Override
@@ -153,7 +173,20 @@ public class Team8SortCompetition extends SortCompetition {
 
         return arr;
     }
-    public static void Swap(String[] array, int x, int y)
+
+    public static int[][] random2DIntArray(int width, int length) {
+        int[][] arr = new int[width][length];
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = (int)(Math.random()*10001);
+            }
+        }
+
+        return arr;
+    }
+
+    public static void swapString(String[] array, int x, int y)
     {
         String temp = array[x];
         array[x] = array[y];
@@ -166,12 +199,32 @@ public class Team8SortCompetition extends SortCompetition {
         list1[b] = temp;
     }
 
+    public static void swapRows(int arr[][], int rowA, int rowB) {
+        int temp[] = arr[rowA];
+        arr[rowA] = arr[rowB];
+        arr[rowB] = temp;
+    }
 
     public static void printIntArr(int [] arr) {
         for (int num:arr) {
             System.out.println(num + " ");
         }
         System.out.println();
+    }
+
+    public static void print2DIntArr(int[][] arr) {
+
+        String line = "";
+
+        for (int i = 0; i < arr.length; i++) {
+            String row = "";
+            for (int j = 0; j < arr[i].length; j++) {
+                row += arr[i][j] + "    ";
+            }
+            line += row + "\n";
+        }
+
+        System.out.println(line);
     }
 }
 
