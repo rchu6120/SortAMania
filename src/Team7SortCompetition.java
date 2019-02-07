@@ -29,7 +29,7 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public int challengeFour(int[][] arr) {
-        return 0;
+return 0;
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
