@@ -1,5 +1,16 @@
 public class Team14SortCompetition extends SortCompetition
 {
+
+    @Override
+    public String greeting()
+    {
+        return "We are Team14, If we win, please send V-bucks to chenBrian@fortnite.edu";
+    }
+
+
+
+    //Swapping methods:
+
     public static void swap(double[] arr, int x, int y) {
         double temp = arr[x];
         arr[x] = arr[y];
@@ -21,6 +32,8 @@ public class Team14SortCompetition extends SortCompetition
     //__________________________________________________________________________________________________________________
 
 
+    // Other helper methods:
+
     public static int getMedian (int [] arr)
     {
         if (arr.length % 2 != 0)
@@ -35,6 +48,14 @@ public class Team14SortCompetition extends SortCompetition
     }
     //__________________________________________________________________________________________________________________
 
+    //Actual challenges:
+
+    /**
+     * Data Set - an array of 10,000 random integers between 0-10000
+     * Task: Sort the list and return the median
+     * @param arr
+     * @return
+     */
 
     @Override
     public int challengeOne(int[] arr)
@@ -43,6 +64,15 @@ public class Team14SortCompetition extends SortCompetition
         return getMedian(arr);
 
     }
+
+    /**
+     * challengeTwo: String sorting and searching
+     * Data Set - an array of 10,000 random strings (strings will be of length 5)
+     * Task: Sort the list and determine if it contains a given string, return the index of the first instance of that string, or -1 if not found
+     * @param arr
+     * @param query
+     * @return
+     */
 
     @Override
     public int challengeTwo(String[] arr, String query)
@@ -55,13 +85,18 @@ public class Team14SortCompetition extends SortCompetition
             {
                 return x;
             }
-
         }
         return -1;
     }
 
+    /**
+     * challengeThree: Mostly Sorted Big Array
+     * Data Set - a mostly sorted array of 100,000 integers (>75% of elements are in the correct order)
+     * Task: Sort the list and return the median
+     * @param arr
+     * @return
+     */
 
-    // done
     @Override
     public int challengeThree(int[] arr)
     {
@@ -69,12 +104,29 @@ public class Team14SortCompetition extends SortCompetition
         return getMedian(arr);
     }
 
+    /**
+     * challengeFour: Mu lti-Dimensional sorting
+     * Data Set - a multi-dimensional array int[1000][1000] all elements are random integers between 0-10000
+     * Task: Sort each sub-array and then sort the arrays by their median value
+     * @param arr
+     * @return
+     */
+
     @Override
     public int challengeFour(int[][] arr)
     {
 
 
     }
+
+    /**
+     * challengeFive: Mystery Sort and Search
+     * Data Set - an array of 10,000 objects that implement the comparable interface
+     * Task: Sort the array by the compareTo method, and determine if it contains the element given. Return the position of the object, or -1 if not found.
+     * @param arr
+     * @param query
+     * @return
+     */
 
     @Override
     public int challengeFive(Comparable[] arr, Comparable query)
@@ -86,15 +138,10 @@ public class Team14SortCompetition extends SortCompetition
         return -1;
     }
 
-    @Override
-    public String greeting()
-    {
-        return "We are Team14, If we win, please send V-bucks to chenBrian@fortnite.edu";
-    }
+
     //__________________________________________________________________________________________________________________
 
-
-    //Sorting Algorithms
+                                                                                                                        //Sorting Algorithms
     public static void insertionSort(int [] in)
     {
         for (int i =0; i < in.length; i++)
