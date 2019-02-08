@@ -4,19 +4,61 @@ import static java.util.Arrays.*;
 public abstract class Team4SortCompetition extends SortCompetition{
 
     public abstract int challengeOne(int[] arr);
-//	return 4;
+    public static double findMedian(int i[], int x) {
+        sort(i);
+        if (x / 2 != 0) ;
+        return (double) i[x / 2];
+        return (double) (i[(x - 1) / 2] + i[x / 2]) / 2.0;
+        System.out.println(x);
+    }
+    //merge sort
+    public static void mergeSort(int []elements){
+        int n = elements.length;
+        int [] temp = new int[n];
+        mergeSortHelper(elements, 0, n-1, temp);
+    }
+    private static void mergeSortHelper(int[]elements, int from, int to, int[]temp){
+        if (from<to){
+            int middle = (from+to)/2;
+            mergeSortHelper(elements,from,middle,temp);
+            mergeSortHelper(elements,middle+1, to, temp);
+            merge(elements, from, middle, to, temp);
+        }
+    }
+    private static void merge(int[]elements, int from, int mid, int to, int[]temp){
+        int i = from;
+        int j = mid+1;
+        int k = from;
+
+        while (i<=mid && j<= to){
+            if (elements[i] < elements[j])
+            {
+                temp[k] = elements[i];
+                i++;
+            }
+            else {
+                temp [k]=elements[j];
+                j++;
+            }
+            k++;
+        }
+
+    }
+
+
+
 
     public abstract int challengeTwo(String[] arr, String query);
-//	return 6;
+
 
     public abstract int challengeThree(int[] arr);
-//	return 9;
+
 
     public abstract int challengeFour(int[][] arr);
-//	return 2;
+
 
     public abstract int challengeFive(Comparable[] arr, Comparable query);
-//	return 1;
+
 
     //Add a custom greeting so your sorter can introduce itself
     public abstract String greeting();
@@ -24,24 +66,22 @@ public abstract class Team4SortCompetition extends SortCompetition{
 
 
 	//challenge 1
-    public class challengeOne {
-        public static void main(String args[]) {
-            Random rgen = new Random();
-            int[] nums = new int[10001];
-            for (int i = 0; i < nums.length; i++) {
-                nums[i] = i;
-            }
-            for (int i = 0; i < nums.length; i++) {
-                int randomPosition = rgen.nextInt(nums.length);
-                int temp = nums[i];
-                nums[i] = nums[randomPosition];
-                nums[randomPosition] = temp;
-            }
-            for (int i = 0; i < nums.length; i++) {
-                System.out.println(nums[i]);
-            }
-        }
-
+//        public static void main(String args[]) {
+//            Random rgen = new Random();
+//            int[] nums = new int[10001];
+//            for (int i = 0; i < nums.length; i++) {
+//                nums[i] = i;
+//            }
+//            for (int i = 0; i < nums.length; i++) {
+//                int randomPosition = rgen.nextInt(nums.length);
+//                int temp = nums[i];
+//                nums[i] = nums[randomPosition];
+//                nums[randomPosition] = temp;
+//            }
+//            for (int i = 0; i < nums.length; i++) {
+//                System.out.println(nums[i]);
+//            }
+//        }
         public static double findMedian(int i[], int x) {
             sort(i);
             if (x / 2 != 0) ;
@@ -49,7 +89,40 @@ public abstract class Team4SortCompetition extends SortCompetition{
             return (double) (i[(x - 1) / 2] + i[x / 2]) / 2.0;
             System.out.println(x);
         }
-    }
+        //merge sort
+        public static void mergeSort(int []elements){
+            int n = elements.length;
+            int [] temp = new int[n];
+            mergeSortHelper(elements, 0, n-1, temp);
+        }
+        private static void mergeSortHelper(int[]elements, int from, int to, int[]temp){
+            if (from<to){
+                int middle = (from+to)/2;
+                mergeSortHelper(elements,from,middle,temp);
+                mergeSortHelper(elements,middle+1, to, temp);
+                merge(elements, from, middle, to, temp);
+            }
+        }
+        private static void merge(int[]elements, int from, int mid, int to, int[]temp){
+            int i = from;
+            int j = mid+1;
+            int k = from;
+
+            while (i<=mid && j<= to){
+                if (elements[i] < elements[j])
+                {
+                    temp[k] = elements[i];
+                    i++;
+                }
+                else {
+                    temp [k]=elements[j];
+                    j++;
+                }
+                k++;
+            }
+
+        }
+
     //Challenge 2
     public class challengeTwo {
         public static int[]randIntArr(int count){
