@@ -16,15 +16,17 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public int challengeTwo(String[] arr, String query) {
+        int a = 0;
         mergeSort(arr);
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].indexOf(query) < 0) {
+            if (arr[i].indexOf(query) >= 0) {
+                a = i;
+                break;
+            } else {
                 return -1;
-            }else{
-                return i;
             }
         }
-        return 0;
+        return a;
     }
 
     public int challengeThree(int[] arr) {
@@ -36,9 +38,7 @@ return 0;
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
-        Collections.sort(arr);
-
-
+        return 0;
     }
 
     public String greeting() {
@@ -46,6 +46,9 @@ return 0;
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+
+
+
     public static int[] randIntArr(int Count) {
         int[] array = new int[Count];
         for (int i = 0; i < array.length; i++) {

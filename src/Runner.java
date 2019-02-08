@@ -14,7 +14,7 @@ public class Runner {
         System.out.println(Team7SortCompetition.printArr(randIntArr1));
 
         int[] challengeOne= Team7SortCompetition.randIntArr(10000);
-        String[] challengeTwo= Team7SortCompetition.randStringArr(10000,5);
+        String[] challengeTwo= Team7SortCompetition.randStringArr(10000,3);
 
         //Notifies user that the generated arrays are unsorted and prints out the unsorted arrays
        // System.out.println(Team7SortCompetition.printStrArr(challengeTwo);
@@ -40,21 +40,13 @@ public class Runner {
 
         //Prints time of challengeTwo
         long time2= System.currentTimeMillis();
-        int query= team7.challengeTwo(challengeTwo,"aalpe");
+        int query= team7.challengeTwo(challengeTwo,"aaa");
         //Prints out sorted String Array (ChallengeTwo)
         System.out.println(Team7SortCompetition.printStrArr(challengeTwo));
         System.out.println("Sorted");
         time2 = System.currentTimeMillis() - time2;
         System.out.println("Challenge Two Time Taken: " + time2 * 0.001 + " Seconds");
         System.out.println("Index of query equals: " + query);
-
-
-//
-
-
-
-
-
     }
 
 }
