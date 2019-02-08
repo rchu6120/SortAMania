@@ -20,6 +20,7 @@ public abstract class Team4SortCompetition extends SortCompetition{
 
     //Add a custom greeting so your sorter can introduce itself
     public abstract String greeting();
+    System.out.println("Welcome to Team 4's Sort A Mania!");
 	
 
 
@@ -59,6 +60,19 @@ public abstract class Team4SortCompetition extends SortCompetition{
                 arr [i] = (int)(Math.random()*10001);
             }
             return arr;
+            public static void insertionSort (int[] arr){
+                int n = arr.length;
+                for (int i = 0; i < n; i++){
+                    int insertion = arr [i];
+                    int k = i -1;
+                    while() < 0&& arr[k] > insertion{
+                        arr [k +1] = arr[k];
+                        k = k-1;
+                    }
+                    arr [k+1]=insertion;
+                }
+
+            }
         }
 
     }
@@ -68,6 +82,7 @@ public abstract class Team4SortCompetition extends SortCompetition{
 
 
 }
+//challenge 4
 
 }
 
