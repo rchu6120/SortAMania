@@ -386,7 +386,7 @@ public class Team12SortCompetition extends SortCompetition {
         //        newlist2++;
         //    }
         //    newlist3++;
-        }
+        //}
        // return newarray;
 
   //**  }
