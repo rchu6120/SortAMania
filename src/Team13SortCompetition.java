@@ -9,8 +9,11 @@ public class Team13SortCompetition extends SortCompetition
     }
     @Override
     public int challengeTwo(String[] arr, String query) {
-        return 0;
-        //selection sort for strings
+        for(int i = 0; i< arr.length;i++)
+        {
+            Sorting_Algorithims.selectionSort(arr);
+        }
+        return
     }
 
     @Override
