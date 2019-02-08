@@ -29,6 +29,12 @@ public class Team14SortCompetition extends SortCompetition
         arr[y] = temp;
     }
 
+    public static void swap(Comparable[] arr, int x, int y) {
+        Comparable temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+
     //__________________________________________________________________________________________________________________
 
 
@@ -60,7 +66,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeOne(int[] arr)
     {
-        insertionSort(arr,0, arr.length-1);
+        timSort(arr,arr.length);
         return getMedian(arr);
 
     }
@@ -145,9 +151,13 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeFive(Comparable[] arr, Comparable query)
     {
+        selectionSort(arr);
         for (int i = 0; i < arr.length; i++)
         {
-            mergeSort(arr);
+            if (arr[i].equals(query))
+            {
+                return i;
+            }
         }
         return -1;
     }
@@ -157,16 +167,16 @@ public class Team14SortCompetition extends SortCompetition
                                                                                                                         //Sorting Algorithms
     public static void insertionSort(int [] in, int left, int right)
     {
-        for (int i = left + 1; i <= right; i++)
+        for (int i =left; i < right +1; i++)
         {
-            int temp = in[i];
-            int j = i-1;
-            while (in[j] > temp && j >= left)
+            for(int a = i; a >0; a--)
             {
-                swap(in,j,j+1);
-                j--;
+                if (in[a]<in[a-1])
+                {
+                   swap(in,a,a-1);
+                }
+                else a = 0;
             }
-            in[j+1] = temp;
         }
     }
 
@@ -186,7 +196,7 @@ public class Team14SortCompetition extends SortCompetition
         }
     }
 
-    public static void selectionSort(double[] arr)
+    public static void selectionSort(Comparable [] arr)
     {
         int i; int j; int min;
         for (i = 0; i < arr.length-1; i++)
@@ -194,7 +204,8 @@ public class Team14SortCompetition extends SortCompetition
             min = i;
             for (j = i+1; j < arr.length; j++)
             {
-                if (arr[j]<arr[min])
+                // arr[j]<arr[min]
+                if (arr[j].compareTo(arr[min]) > 0)
                 {
                     min = j;
                 }
@@ -203,60 +214,6 @@ public class Team14SortCompetition extends SortCompetition
         }
     }
 
-    public void mergeSort(Comparable [] arr)
-    {
-        int n = arr.length;
-        Comparable [] temp = new Comparable[n];
-        mergeSortHelper(arr,0,n-1,temp);
-    }
-
-    public void mergeSortHelper (Comparable [] arr, int left, int right, Comparable [] temp)
-    {
-        if (left > right)
-        {
-            int mid = (left + right)/2;
-            mergeSortHelper(arr, left, mid, temp);
-            mergeSortHelper(arr, mid+1, right, temp);
-            merge (arr, left, mid, right, temp);
-        }
-    }
-
-    public void merge (Comparable [] elements, int from, int mid, int to, Comparable []temp)
-    {
-        int i = from;
-        int j = mid + 1;
-        int k = from;
-        while (i <= mid && j <= to)
-        {
-            if (elements[i].compareTo(elements[j])<0)
-            {
-                temp [k] = elements[i];
-                i++;
-            }
-            else
-            {
-                temp[k] = elements[j];
-                j++;
-            }
-            k++;
-        }
-        while (i <= mid)
-        {
-            temp [k] = elements[i];
-            i++;
-            k++;
-        }
-        while (j <= to)
-        {
-            temp [k] = elements[j];
-            j++;
-            k++;
-        }
-        for (k = from; k <= to; k++)
-        {
-            elements[k] = temp [k];
-        }
-    }
 
     private static void merge(int[] elements, int from, int mid, int to)
     {
@@ -293,7 +250,6 @@ public class Team14SortCompetition extends SortCompetition
         }
     }
 
-
     // arr is array to be sorted, n is the length of the array.
     public static int Run = 32;
     public static void timSort (int [] arr, int n)
@@ -302,7 +258,6 @@ public class Team14SortCompetition extends SortCompetition
         {
             insertionSort(arr, i, Math.min(i+31,(n-1)));
         }
-
         for (int size = Run; size < n; size = 2*size)
         {
             for (int left = 0; left < n; left += 2*size)
