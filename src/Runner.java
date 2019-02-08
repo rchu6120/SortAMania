@@ -35,12 +35,12 @@ public class Runner {
         printArr(randStringArr);
 
         long time = System.currentTimeMillis();
-        int median = team2.challengeOne(randIntArr);
+        int median = team2.challengeOne(randomIntsArr);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
 
         System.out.println("Sorted");
-        printArr(randIntArr);
+        printArr(randomIntsArr);
     }
 }
