@@ -6,22 +6,27 @@ public class Sorting_Algorithims {
 
         while (x <= mid && y <= to)
         {
-            if (arr[x] < arr[y]) {
+            if (arr[x] < arr[y])
+            {
                 temp[z] = arr[x];
                 x++;
-            } else {
+            }
+            else
+                {
                 temp[z] = arr[y];
                 y++;
             }
             z++;
         }
 
-        while (x <= mid) {
+        while (x <= mid)
+        {
             temp[z] = arr[x];
             z++;
             x++;
         }
-        while (y <= to) {
+        while (y <= to)
+        {
             temp[z] = arr[y];
             z++;
             y++;
@@ -31,7 +36,7 @@ public class Sorting_Algorithims {
         if (from < to) {
             int middle = (from + to) / 2;
             mergeSortHelper(arr, from, middle, temp);
-            mergeSortHelper(arr, from, middle, temp);
+            mergeSortHelper(arr, middle+1, to, temp);
             merge(arr, from, middle, to, temp);
         }
     }

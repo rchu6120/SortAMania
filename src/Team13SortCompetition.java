@@ -4,7 +4,14 @@ public class Team13SortCompetition extends SortCompetition
     public int challengeOne(int[] arr)
     {
         Sorting_Algorithims.mergeSort(arr);
-        int median = arr[5000];
+        int front = arr.length/2;
+        int back = arr.length -1;
+        int median = 0;
+        if(arr.length%2 ==0) {
+            median = (arr[front] + arr[back]) / 2;
+        }
+        else
+            median = arr[front];
         return median;
     }
     @Override

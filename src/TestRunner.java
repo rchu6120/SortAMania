@@ -30,7 +30,7 @@ public class TestRunner {
     }
 
     public static void main(String[] args) {
-        SortCompetition team11 = new Team13SortCompetition();
+        SortCompetition team13 = new Team13SortCompetition();
         int[] randIntArr = {1,23,2344,56565,86,9,0,45657578,22,1,343,2,563,6655,9244,8566};
         String[] randomStringArr = randomStringArr(10000, 5);
 
@@ -38,7 +38,7 @@ public class TestRunner {
         printArr(randIntArr);
 
         long time = System.currentTimeMillis();
-        int median = team11.challengeOne(randIntArr);
+        int median = team13.challengeOne(randIntArr);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + "Seconds");
         System.out.println("Median equals: " + median);
