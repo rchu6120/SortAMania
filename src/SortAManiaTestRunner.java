@@ -1,4 +1,23 @@
+import java.util.Random;
+
 public class SortAManiaTestRunner {
+
+    public static void randomIntsArr(String args[]) {
+        Random rgen = new Random();
+        int[] nums = new int[10001];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = i;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            int randomPosition = rgen.nextInt(nums.length);
+            int temp = nums[i];
+            nums[i] = nums[randomPosition];
+            nums[randomPosition] = temp;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println(nums[i]);
+        }
+    }
 
     public static void main(String[] args)
     {
