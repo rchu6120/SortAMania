@@ -156,7 +156,7 @@ public class Sorting_Algorithims {
         Comparable[] things = new Comparable[num];
         for(int i = 0; i<num;i++)
         {
-            things[i] = new Comparable();
+            things[i] = new Comparabl();
         }
         return things;
     }
