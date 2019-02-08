@@ -45,6 +45,7 @@ public class Team8SortCompetition extends SortCompetition {
             }
             if(!swapped) break;
         }
+
         for(int a = 0; a < arr.length; a++){
             if(arr[a].indexOf(query)>-1){
                 return a;
