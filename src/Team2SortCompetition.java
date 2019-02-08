@@ -14,7 +14,9 @@ public class Team2SortCompetition extends SortCompetition {
 
     @Override
     public int challengeThree(int[] arr) {
-        return 0;
+        insertionSort(arr);
+        int median = arr[4999];
+        return median;
     }
 
     @Override
@@ -76,11 +78,11 @@ public class Team2SortCompetition extends SortCompetition {
     }
 
     //public class BubbleSort {
-        public static void swap(int[] arr, int i, int j) {
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
     public static void swap(String[] arr, int i, int j) {
         String temp = arr[i];
@@ -125,6 +127,19 @@ public class Team2SortCompetition extends SortCompetition {
                 quickSort(arr, start, j - 1);
                 quickSort(arr, j + 1, end);
             }
+        }
+
+        public static void insertionSort(int[] arr){
+        for (int i = 1; i <arr.length; i++){
+            for (int j=i; j > 0; j--){
+                if (arr[j]<arr[j-1]) {
+                    Team2SortCompetition.swap(arr, j, j - 1);
+                }
+                else if (arr[j]>arr[j-1]){
+                    break;
+                }
+            }
+        }
         }
     }
 

@@ -6,7 +6,6 @@ public class Runner {
         }
         return arr;
     }
-    //hehe
 
     public static String[] randomStringArr(int num, int length)
     {
