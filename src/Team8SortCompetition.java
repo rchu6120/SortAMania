@@ -81,18 +81,7 @@ public class Team8SortCompetition extends SortCompetition {
             medianArr[i] = challengeOne(arr[i]);
         }
 
-        for (int j = 0; j < medianArr.length; j++) {
-            for (int k = j; k > 0; k--) {
-                if (medianArr[j] < medianArr[j-1]) {
-                    swapInt(medianArr, j, j-1);
-                }
-            }
-        }
-
-        int index = 0;
-
-        //how do we swap arrays based on their medians?
-        challengeOne(medianArr);
+        modShellSort(medianArr, arr);
 
         int length = medianArr.length;
 
@@ -105,16 +94,25 @@ public class Team8SortCompetition extends SortCompetition {
     }
 
     @Override
-    public int challengeFive(Object[] arr, Object query) {
+    public int challengeFive(Comparable[] arr, Comparable query) {
         boolean swapped = false;
+        int index = -1;
+
         while(swapped) {
             swapped = false;
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i].compareTo(arr[i + 1]) < 0) {
                     swapObj(arr, i, i+1);
                 }
+
+                if (arr[i] == query) {
+                    index = i;
+                }
             }
         }
+
+
+        return index;
     }
 
     @Override
@@ -164,6 +162,25 @@ public class Team8SortCompetition extends SortCompetition {
         }
     }
 
+    public static void modShellSort(int[] medArr, int[][] fullArr) {
+        int length = medArr.length;
+
+        for (int gap = length/2; gap > 0; gap /= 2) {
+            for (int i = gap; i < length; i += 1) {
+                int temp = medArr[i];
+                int[] temporary = fullArr[i];
+
+                int j;
+                for (j = i; j >= gap && medArr[j - gap] > temp; j -= gap) {
+                        medArr[j] = medArr[j - gap];
+                        fullArr[j] = fullArr[j-gap];
+                }
+                medArr[j] = temp;
+                fullArr[j] = temporary;
+            }
+        }
+    }
+
     public static int[] randIntsArr(int count) {
         int[] list= new int[count];
         for (int i=0; i<list.length; i++)
@@ -206,8 +223,8 @@ public class Team8SortCompetition extends SortCompetition {
     }
 
 
-    public Object[] randomObjArr(int num){
-        Object[] objects = new Object[num];
+    public Comparable[] randomObjArr(int num){
+        Comparable[] objects = new Comparable[num];
         for (int i = 0; i < num; i++){
             objects[i] = new Object();
         }
@@ -233,8 +250,8 @@ public class Team8SortCompetition extends SortCompetition {
         array[rowB] = temp;
     }
 
-    public static void swapObj(Object[] arr, int a, int b){
-        Object temp = arr[a];
+    public static void swapObj(Comparable[] arr, int a, int b){
+        Comparable temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
     }
@@ -259,7 +276,7 @@ public class Team8SortCompetition extends SortCompetition {
         for (int i = 0; i < arr.length; i++) {
             String row = "";
             for (int j = 0; j < arr[i].length; j++) {
-                row += arr[i][j] + "    ";
+                row += arr[i][j] + "  ";
             }
 
             line += row + "\n";
