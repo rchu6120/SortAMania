@@ -1,6 +1,11 @@
 public class TestRunner {
     public static String[] randomStringArr(int num,int length) {
-        {
+        String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        String[] arr = new String[length];
+        for(int i = 0; i < length;i++){
+            for(int w = 1; w < num;w++){
+                arr[i]+= abc.charAt(((int)(Math.random()*length*10)));
+            }
 
         }
         return arr;
