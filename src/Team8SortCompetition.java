@@ -24,20 +24,26 @@ public class Team8SortCompetition extends SortCompetition {
     }
 
     @Override
-    public int challengeTwo(String[] arr, String query) {
-        int swapNum = -1;
-        while (swapNum != 0)
-        {
-            swapNum = 0;
-            for (int i = 0; i < arr.length - 1; i++)
-            {
-                int j = i + 1;
-                if (arr[i].compareToIgnoreCase(arr[j]) > 0)
-                {
-                    Swap(arr, i , j);
-                    swapNum++;
+    public int challengeTwo(String[] arr, String query){
+        for (int i = 0; i < arr.length/2; i++){
+            boolean swapped = false;
+            for (int j = i; j < arr.length - i - 1; j++) {
+                if (arr[j].compareToIgnoreCase(arr[j+1])>0) {
+                    String tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                    swapped = true;
                 }
             }
+            for (int j = arr.length - 2 - i; j > i; j--) {
+                if (arr[j].compareToIgnoreCase(arr[j-1])<0) {
+                    String tmp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = tmp;
+                    swapped = true;
+                }
+            }
+            if(!swapped) break;
         }
         for(int a = 0; a < arr.length; a++){
             if(arr[a].indexOf(query)>-1){
@@ -225,6 +231,12 @@ public class Team8SortCompetition extends SortCompetition {
             System.out.println(num + " ");
         }
         System.out.println();
+    }
+
+    public static void printStringArr(String[] arr){
+        for (int i = 0; i < arr.length; i++){
+            System.out.println(arr[i] +"\n");
+        }
     }
 
     public static void print2DIntArr(int[][] arr) {
