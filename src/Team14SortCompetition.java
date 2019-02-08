@@ -66,7 +66,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeOne(int[] arr)
     {
-        timSort(arr,arr.length);
+        insertionSort(arr, 0, arr.length-1);
         return getMedian(arr);
 
     }
@@ -106,7 +106,7 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeThree(int[] arr)
     {
-        timSort(arr,arr.length);
+        insertionSort(arr,0, arr.length-1);
         return getMedian(arr);
     }
 
@@ -252,6 +252,7 @@ public class Team14SortCompetition extends SortCompetition
 
     // arr is array to be sorted, n is the length of the array.
     public static int Run = 32;
+
     public static void timSort (int [] arr, int n)
     {
         for (int i = 0; i < n; i+= Run)

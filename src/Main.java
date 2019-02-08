@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Main
 {
 
@@ -27,7 +28,7 @@ public class Main
     public static int[] randIntArr(int count) {
         int[] arr = new int[count];
         for (int x = 0; x < count; x++)
-            arr[x] = (int) (Math.random() * 10001);
+            arr[x] = (int) (Math.random() * 10000);
         return arr;
     }
 
@@ -35,7 +36,7 @@ public class Main
         int[][] arr = new int[row][col];
         for(int x = 0; x < row; x++) {
             for (int y = 0; y < col; y++)
-                arr[x][y] = (int) (Math.random() * 10001);
+                arr[x][y] = (int) (Math.random() * 10000);
         }
         return arr;
     }
@@ -43,7 +44,7 @@ public class Main
     public static double[] randDoubleArr(int count) {
         double[] arr = new double[count];
         for (int x = 0; x < count; x++)
-            arr[x] = (Math.random() * 10001);
+            arr[x] = (Math.random() * 10000);
         return arr;
     }
 
@@ -165,27 +166,96 @@ public class Main
 
     }
 
-
-
+    //__________________________________________________________________________________________________________________
         public static void main(String[] args)
     {
 
         SortCompetition team14 = new Team14SortCompetition();
-        int[] randIntArr = randIntArr(10000);
-        int[][] randIntArrArr = randIntArr(10000, 5000);
-        String[] randStringArr = randStringArr(10000, 5);
+        int[] randIntArr = randIntArr(20);
+        int[][] randIntArrArr = randIntArr(20, 20);
+        String[] randStringArr = randStringArr(20, 5);
+        System.out.println("Challenge 1-5?");
+        Scanner in = new Scanner(System.in);
+        String statement = in.nextLine();
+        switch (statement) {
 
-        System.out.println("Unsorted");
-        printArr(randIntArr);
+            case "1":
+                System.out.println("Unsorted");
+                printArr(randIntArr);
 
-        long time = System.currentTimeMillis();
-        int median = team14.challengeOne(randIntArr);
-        time = System.currentTimeMillis() - time;
-        System.out.println("Challenge One Time Taken: " + time * .001 + " Seconds");
-        System.out.println("Median equals: " + median);
+                long time = System.currentTimeMillis();
+                int median = team14.challengeOne(randIntArr);
+                time = System.currentTimeMillis() - time;
 
-        System.out.println("Sorted");
-        printArr(randIntArr);
+                System.out.println("Challenge One Time Taken: " + time * .001 + " Seconds");
+                System.out.println("Median equals: " + median);
+
+                System.out.println("\nSorted");
+                printArr(randIntArr);
+                break;
+            case "2":
+
+                System.out.println("Unsorted");
+                printArr(randStringArr);
+
+                time = System.currentTimeMillis();
+                median = team14.challengeTwo(randStringArr, "boo");
+                time = System.currentTimeMillis() - time;
+
+                System.out.println("Challenge Two Time Taken: " + time * .001 + " Seconds");
+                System.out.println("Median equals: " + median);
+
+                System.out.println("\nSorted");
+                printArr(randStringArr);
+                break;
+
+            case "3":
+                System.out.println("Unsorted");
+                printArr(randIntArr);
+
+                time = System.currentTimeMillis();
+                median = team14.challengeThree(randIntArr);
+                time = System.currentTimeMillis() - time;
+
+                System.out.println("Challenge Three Time Taken: " + time * .001 + " Seconds");
+                System.out.println("Median equals: " + median);
+
+                System.out.println("\nSorted");
+                printArr(randIntArr);
+                break;
+
+            case "4":
+
+                System.out.println("Unsorted");
+                printArr(randIntArrArr);
+
+                time = System.currentTimeMillis();
+                median = team14.challengeFour(randIntArrArr);
+                time = System.currentTimeMillis() - time;
+
+                System.out.println("Challenge One Time Taken: " + time * .001 + " Seconds");
+                System.out.println("Median equals: " + median);
+
+                System.out.println("\nSorted");
+                printArr(randIntArrArr);
+                break;
+
+            case "5":
+
+                System.out.println("Unsorted");
+                printArr(randIntArr);
+
+                time = System.currentTimeMillis();
+                median = team14.challengeFive(randStringArr, "boo");
+                time = System.currentTimeMillis() - time;
+
+                System.out.println("Challenge One Time Taken: " + time * .001 + " Seconds");
+                System.out.println("Median equals: " + median);
+
+                System.out.println("\nSorted");
+                printArr(randIntArr);
+                break;
+        }
     }
 }
 
