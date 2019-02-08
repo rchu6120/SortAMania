@@ -29,9 +29,17 @@ public class Runner {
     public static void printArr(String[] arr){
         String result = "";
         for (int i = 0; i<arr.length; i++){
-            result = result + arr[i];
+            result = result + " " + arr[i];
         }
         System.out.println(arr);
+    }
+
+    public static void printInt (int[] num){
+        int a = 0;
+        for (int b = 0; b < num.length; b++){
+            a = a + num[b];
+;        }
+        System.out.println(a);
     }
 
     public static void main (String[] args) {
