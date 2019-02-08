@@ -366,31 +366,6 @@ public class Team12SortCompetition extends SortCompetition {
         System.out.println(out + "\n");
     }
 
-    //**public static Comparable[] mergeComparable(Comparable[] list1, Comparable[] list2) {
-      //  int newlist = 0;
-       // int newlist2 = 0;
-      //  int newlist3 = 0;
-      //  Comparable[] newarray = new Comparable[list1.length + list2.length];
-     //   while (newlist < list1.length || newlist2 < list2.length) {
-        //    if (newlist == list1.length) {
-        //        newarray[newlist3] = list2[newlist2];
-      //          newlist2++;
-     //       } else if (newlist2 == list2.length) {
-     //           newarray[newlist3] = list1[newlist];
-     //           newlist++;
-      //      } else if (list1[newlist].compareTo(list2[newlist2]) < 0) {
-      //          newarray[newlist3] = list1[newlist];
-      //          newlist++;
-       //     } else {
-       //         newarray[newlist3] = list2[newlist2];
-        //        newlist2++;
-        //    }
-        //    newlist3++;
-        //}
-       // return newarray;
-
-  //**  }
-
     public void mergeSort(Comparable[] arr) {
         int n = arr.length;
         Comparable[] temp = new Comparable[n];
