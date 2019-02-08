@@ -39,7 +39,7 @@ public class Team13SortCompetition extends SortCompetition
             if(arr[i] == query)
             {
                 re = i;
-                return i;
+                return re;
             }
         }
         return re;
