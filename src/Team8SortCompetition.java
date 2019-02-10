@@ -94,10 +94,7 @@ public class Team8SortCompetition extends SortCompetition {
 
     }
     @Override
-    public int challengeFive(Comparable[] arr, Comparable query){
-        return 0;
-    }
-   /** @Override
+
     public int challengeFive(Comparable[] arr, Comparable query) {
         for (int i = 0; i < arr.length/2; i++){
             boolean swapped = false;
@@ -122,7 +119,7 @@ public class Team8SortCompetition extends SortCompetition {
         }
         return -1;
     }
-*/
+
     @Override
     public String greeting() {
         return null;
@@ -280,7 +277,7 @@ public class Team8SortCompetition extends SortCompetition {
 
     public static void printObj(Comparable[] arr){
         for (int i = 0; i < arr.length; i ++){
-            System.out.println(arr[i] + "\n");
+            System.out.println(arr[i]. + "\n");
         }
     }
 
@@ -298,5 +295,7 @@ public class Team8SortCompetition extends SortCompetition {
 
         System.out.println(line);
     }
+
+
 }
 

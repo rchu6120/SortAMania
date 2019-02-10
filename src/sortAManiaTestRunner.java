@@ -34,5 +34,8 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
         System.out.println("Unsorted");
         printObj(objects);
 
+        System.out.println("Sorted");
+        printObj(objects);
+
     }
 }
