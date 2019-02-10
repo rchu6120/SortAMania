@@ -11,12 +11,21 @@ public class Team11SortCompetition extends SortCompetition {
 
     @Override
     public int challengeThree(int[] arr) {
-        return 0;
+        insertionSort(arr);
+        return FindMedian(arr);
     }
 
     @Override
     public int challengeFour(int[][] arr) {
-        return 0;
+        for(int i=0;i<arr.length;i++){
+            insertionSort(arr[i]);
+        }
+        int[] med=new int[arr.length];
+        for(int j=0;j<arr.length;j++){
+            med[j]=FindMedian(arr[j]);
+        }
+        insertionSort(med);
+         return(FindMedian(med));
     }
 
     @Override
@@ -66,22 +75,39 @@ public class Team11SortCompetition extends SortCompetition {
         {
             elements[k] = temp[k];
         }
-    }
 
-    public static void mergeSort(int[] arr){
-        int n=arr.length;
-        int[] temp=new int[n];
-        mergeSortHelper(arr,0,n-1,temp);
     }
-
-    public static void mergeSortHelper(int[] arr, int left, int right,int[]temp){
-        if(left<right){
-            int mid=(left+right)/2;
-            mergeSortHelper(arr,left,mid,temp);
-            mergeSortHelper(arr,mid+1,right,temp);
-            merge(arr,left,mid,right,temp);
+    public static void insertionSort(int[] arr)
+    {
+        int currentPos=1;
+        for(int i=1; i<arr.length; i++)
+        {
+            for(int j=i; j>0; j--)
+            {
+                if (arr[j]<arr[j-1]) {
+                    swap(arr, j,j-1 );
+                }else if(arr[j]>arr[j-1]){
+                    break;
+                }
+            }
         }
     }
+
+    public static int[] swap(int[]arr, int i, int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+        return arr;
+    }
+    public static int FindMedian(int[] arr){
+        if(arr.length%2==0){
+            return (arr[arr.length/2]+arr[(arr.length/2)-1])/2;
+        } else {
+            return arr[arr.length/2];
+        }
+    }
+
+
 
 
 
