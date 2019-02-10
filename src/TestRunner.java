@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class TestRunner {
     public static String[] randomStringArr(int num, int length) {
         String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -29,7 +31,8 @@ public class TestRunner {
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         SortCompetition team13 = new Team13SortCompetition();
         int[] randIntArr = {1,23,2344,56565,86,9,0,45657578,22,1,343,2,563,6655,9244,8566};
         String[] randomStringArr = randomStringArr(10000, 5);
@@ -45,6 +48,18 @@ public class TestRunner {
 
         System.out.println("Sorted");
         printArr(randIntArr);
+
+        int[][] doubleArr = Sorting_Algorithims.doubleRandIntArr();
+        System.out.println("Unsorted");
+        System.out.println(Arrays.toString(doubleArr));
+        time = System.currentTimeMillis();
+        median = team13.challengeFour(doubleArr);
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge Four Time Taken: " + time*.001+"Seconds");
+        System.out.println("Median equals: " +median);
+
+        System.out.println("Sorted");
+        System.out.println(Arrays.toString(doubleArr));
     }
 }
 

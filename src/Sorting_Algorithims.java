@@ -63,18 +63,19 @@ public class Sorting_Algorithims {
                     temp[k] = arr2[j];
                     j++;
                 }
+                k++;
         }
         while(i<= mid)
         {
             temp[k] = arr2[i];
-            k++;
             i++;
+            k++;
         }
-        while(j<=to)
+        while(j<= to)
         {
             temp[k] = arr2[j];
-            k++;
             j++;
+            k++;
         }
     }
     public static void doubleMergeSortHelper(int[][] arr2, int from, int to, int[][] temp)
@@ -83,7 +84,7 @@ public class Sorting_Algorithims {
         {
             int middle = (from + to)/2;
             doubleMergeSortHelper(arr2,from,middle,temp);
-            doubleMergeSortHelper(arr2,from,middle,temp);
+            doubleMergeSortHelper(arr2,middle+1, to, temp);
             doubleMerge(arr2,from,middle,to,temp);
         }
     }
@@ -142,8 +143,9 @@ public class Sorting_Algorithims {
 
         }
     }
-    public static int indexOfArrayOfStrings(String[] arr,){
-
+    public static int indexOfArrayOfStrings(String[] arr)
+    {
+        return 0;
     }
     String [] TestArr = {"Arr", "Tell", "weather","car"};
     public static void stringSwap(String[] arr, int i, int j){
@@ -208,5 +210,18 @@ public class Sorting_Algorithims {
         int n = arr3.length;
         Comparable[] temp = new Comparable[n];
         objMergeSortHelper(arr3,0,n-1,temp);
+    }
+
+    public static int[][] doubleRandIntArr()
+    {
+        int[][] doubleArr = new int [1000][1000];
+        for(int i = 0; i<doubleArr.length;i++)
+        {
+            for (int j =0; j<doubleArr[i].length;j++)
+            {
+                doubleArr[i][j] = (int)(Math.random()*10000);
+            }
+        }
+        return doubleArr;
     }
 }
