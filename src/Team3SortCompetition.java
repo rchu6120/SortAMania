@@ -1,4 +1,5 @@
 import javax.rmi.CORBA.Util;
+import java.util.List;
 
 public class Team3SortCompetition extends SortCompetition {
 
@@ -25,8 +26,8 @@ public class Team3SortCompetition extends SortCompetition {
 
     public int challengeFive(Comparable[] arr, Comparable query) { //array of 10,000 objects that implement comparable. sort using compareTo method. return position of the object or -1.
         //you must use a stable sort
-
-
+        stableSelection(arr, arr.length);
+        return search(arr, arr.length);
     }
 
     public String greeting() {
@@ -36,6 +37,11 @@ public class Team3SortCompetition extends SortCompetition {
 
     public static void stringSwap(String[] arr, int i, int j) {
         String temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public static void intSwap(int[] arr, int i, int j) {
+        int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
@@ -67,17 +73,28 @@ public class Team3SortCompetition extends SortCompetition {
     }
 
 
-    public static void insertionSort(int[] arr) {
-        for (int curPos = 0; curPos < arr.length - 1; curPos++) {
-            if (arr[curPos] > arr[curPos + 1]) {
-                for (int x = curPos; x >= 0; x--) {
-                    if (arr[curPos] > arr[curPos + 1]) {
-                        intSwap(arr, curPos, curPos + 1);
-                    }
+    public static <T extends Comparable<T>>void stableSelection(T[] a, int n) //for chaalenge 5 lol
+    {
+        for (int curPos = 0; curPos < n - 1; curPos++)
+        {
+
+            int min = curPos;
+            for (int nextPos = curPos + 1; nextPos < n; nextPos++) {
+                if (a[min].compareTo(a[nextPos]) == -1) {
+                    min = nextPos;
                 }
+            }   
+            T val = a[min];
+            while (min > curPos)
+            {
+                a[min] = a[min - 1];
+                min--;
             }
+
+            a[curPos] = val;
         }
     }
+
 
     public static String[] arrString(int count) {
         String[] arr = new String[count];
@@ -113,15 +130,7 @@ public class Team3SortCompetition extends SortCompetition {
         return arrDouble(7);
     }
 
-
-    public static void intSwap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-
-    public static int median(int[] arr) {
+    public static int median(int[] arr) { //finds the median of an int array
         if (arr.length % 2 == 0) {
             return ((arr[arr.length / 2 + 1]) + (arr[arr.length / 2 - 1])) / 2;
         } else {
@@ -129,7 +138,7 @@ public class Team3SortCompetition extends SortCompetition {
         }
     }
 
-    public static int search(String[] arr, String query) {
+    public static int search(Object[] arr, Object query) { //searches an array for a query
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].equals(query)) {
                 return i;
@@ -165,5 +174,7 @@ public class Team3SortCompetition extends SortCompetition {
 
         return median(medianArr); //returns median of median array
     }
+
+
 }
 
