@@ -25,13 +25,25 @@ public class Team2SortCompetition extends SortCompetition {
     @Override
     public int challengeThree(int[] arr) {
         insertionSort(arr);
-        int median = arr[4999];
+        int median = arr[49999];
         return median;
     }
 
     @Override
-    public int challengeFour(int[][] arr) {
-        return 0;
+    public int challengeFour(int[][] arr)
+    {
+        int i=0;
+        int j=0;
+        int[] medians= new int[1000];
+        for( i=0; i<arr.length; i++)
+        {
+            BubbleSort(arr[i]);
+            medians[i]= arr[i][499];
+
+        }
+        BubbleSort(medians);
+        return medians[499];
+
     }
 
     @Override
