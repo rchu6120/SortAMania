@@ -1,7 +1,8 @@
 public class Team11SortCompetition extends SortCompetition {
     @Override
     public int challengeOne(int[] arr) {
-        return 0;
+        quickSort2(arr,0,arr.length-1);
+        return FindMedian(arr);
     }
 
     @Override
@@ -25,7 +26,7 @@ public class Team11SortCompetition extends SortCompetition {
             med[j]=FindMedian(arr[j]);
         }
         insertionSort(med);
-         return(FindMedian(med));
+        return(FindMedian(med));
     }
 
     @Override
@@ -140,10 +141,209 @@ public class Team11SortCompetition extends SortCompetition {
         }
         return -1;
     }
+    public static String printStringArr(String[] arr)
+    {
+        String result="";
+
+        for(String num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+    public static String printDoubleArr(double[] arr)
+    {
+        String result="";
+
+        for(double num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+
+    public static String printIntArr(int[] arr)
+    {
+        String result="";
+
+        for(int num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+    public static String printInt2Arr(int[][] arr)
+    {
+        String result="";
+
+        for(int[] num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+
+    public static String printMultiArr(int[][] arr){
+        String result="";
+
+        for(int[] num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+
+    public static int partition(int[] arr, int low, int high)
+    {
+        int pivot = arr[high];
+        int i = (low-1); // index of smaller element
+        for (int j=low; j<high; j++)
+        {
+            // If current element is smaller than or
+            // equal to pivot
+            if (arr[j] <= pivot)
+            {
+                i++;
+
+                // swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+
+    public static void quickSort(int[] arr, int low, int high)
+    {
 
 
+        if (low < high)
+        {
+            int pi = partition(arr, low, high);
+
+            quickSort(arr, low, pi-1);
+            quickSort(arr, pi+1, high);
+        }
+    }
+    public static int partition2(int[] arr, int low, int high)
+    {
+        int endNum=arr[high];
+        int begNum=arr[low];
+        int middleIndex= (int)((low+high)/2);
+        int middle=arr[middleIndex];
+
+        if(begNum > middle)
+        {
+            swap(arr, low, middleIndex);
+        }
+        if(begNum>endNum)
+        {
+            swap(arr, low, high);
+        }
+        if(middle > endNum)
+        {
+            swap(arr, middleIndex,high);
+        }
+
+        int pivot = arr[high];
+        int i = (low-1); // index of smaller element
+        for (int j=low; j<high; j++)
+        {
+            // If current element is smaller than or
+            // equal to pivot
+            if (arr[j] <= pivot)
+            {
+                i++;
+
+                // swap arr[i] and arr[j]
+                swap(arr, i, j);
+            }
+        }
+
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+
+    public static void quickSort2(int arr[], int low, int high)
+    {
+        if (low < high)
+        {
+            int pi = partition2(arr, low, high);
+
+            quickSort2(arr, low, pi-1);
+            quickSort2(arr, pi+1, high);
+        }
+    }
 
 
+    public static int partition3(int[] arr, int low, int high)
+    {
+
+        int endNum=arr[high];
+        int begNum=arr[low];
+        int middleIndex= (int)((low+high)/2);
+        int middle=arr[middleIndex];
+
+        if(middle < endNum)
+        {
+            swap(arr, high, middleIndex);
+        }
+        if(begNum < endNum)
+        {
+            swap(arr, low, high);
+        }
+        if(middle<begNum)
+        {
+            swap(arr, middleIndex,low);
+        }
 
 
+        int pivot = arr[low];
+
+
+        int i = (low-1);
+        int j= (high+1);
+
+        while(true)
+        {
+            do {
+                i++;
+            }
+            while(arr[i] < pivot);
+
+
+            do{
+                j--;
+            }
+            while(arr[j] >pivot);
+
+
+            if(i>=j)
+            {
+                return j;
+            }
+            swap(arr, i,j);
+        }
+    }
+
+    public static void quickSort3(int arr[], int low, int high)
+    {
+        if (low < high)
+        {
+            int pi = partition3(arr, low, high);
+            quickSort3(arr, low, pi);
+            quickSort3(arr, pi+1, high);
+        }
+    }
 }
