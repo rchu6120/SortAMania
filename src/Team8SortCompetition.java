@@ -104,15 +104,16 @@ public class Team8SortCompetition extends SortCompetition {
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i].compareTo(arr[i + 1]) < 0) {
                     swapObj(arr, i, i+1);
-                }
 
-                if (arr[i] == query) {
-                    index = i;
+                    swapped = true;
                 }
             }
         }
-
-
+        for (int a = 0; a < arr.length; a ++){
+            if (arr[a] == (query)){
+                index = a;
+            }
+        }
         return index;
     }
 
