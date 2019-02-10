@@ -57,7 +57,7 @@ public class Runner {
         System.out.println("Median equals: " + median);
 
         System.out.println("Sorted");
-        printArr(randomIntsArr);
+        printInt(randomIntsArr);
         //make another method called Print Arr t
     }
 }
