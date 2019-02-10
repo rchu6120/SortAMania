@@ -96,25 +96,28 @@ public class Team8SortCompetition extends SortCompetition {
 
     @Override
     public int challengeFive(Comparable[] arr, Comparable query) {
-        boolean swapped = false;
-        int index = -1;
-
-        while(swapped) {
-            swapped = false;
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i].compareTo(arr[i + 1]) < 0) {
-                    swapObj(arr, i, i+1);
-
+        for (int i = 0; i < arr.length/2; i++){
+            boolean swapped = false;
+            for (int j = i; j < arr.length - i - 1; j++) {
+                if (arr[j].compareTo(arr[j+1])>0) {
+                   swapObj(arr, j, j+1);
                     swapped = true;
                 }
             }
+            for (int j = arr.length - 2 - i; j > i; j--) {
+                if (arr[j].compareTo(arr[j-1])<0) {
+                   swapObj(arr, j, j-1);
+                    swapped = true;
+                }
+            }
+            if(!swapped) break;
         }
         for (int a = 0; a < arr.length; a ++){
-            if (arr[a] == (query)){
-                index = a;
+            if (arr[a] == query){
+                return a;
             }
         }
-        return index;
+        return -1;
     }
 
     @Override
