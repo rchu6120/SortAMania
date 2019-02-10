@@ -20,7 +20,7 @@ public class Team13SortCompetition extends SortCompetition
         {
             Sorting_Algorithims.selectionSort(arr);
         }
-        return 0;
+        return Sorting_Algorithims.indexOfArrayOfStrings(arr,query);
     }
 
     @Override

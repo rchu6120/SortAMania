@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class TestRunner {
     public static String[] randomStringArr(int num, int length) {
         String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -34,7 +32,7 @@ public class TestRunner {
     public static void main(String[] args)
     {
         SortCompetition team13 = new Team13SortCompetition();
-        int[] randIntArr = {1,23,2344,56565,86,9,0,45657578,22,1,343,2,563,6655,9244,8566};
+        int[] randIntArr = randomIntsArr(10000);
         String[] randomStringArr = randomStringArr(10000, 5);
 
         System.out.println("Unsorted");
@@ -60,19 +58,17 @@ public class TestRunner {
 
         System.out.println("Sorted");
         System.out.println(Arrays.toString(doubleArr));
-    }
-}
 
 
-        /*long time = System.currentTimeMillis();
-        int median = team11.challengeOne(randIntArr);
-        time = System.currentTimeMillis() - time;
-        System.out.println("Challenge One Time Taken: " + time * 0.001 + "Seconds");
-        System.out.println("Median equals: " + median);
+        long time1 = System.currentTimeMillis();
+        int median1 = team13.challengeTwo(randomStringArr,"W");
+        time1 = System.currentTimeMillis() - time1;
+        System.out.println("Challenge Two Time Taken: " + time1 * 0.001 + "Seconds");
+        System.out.println("Median equals: " + median1);
 
         System.out.println("Sorted");
         printArr(randIntArr);
 
             }
-        }*/
+                }
 
