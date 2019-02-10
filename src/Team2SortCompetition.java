@@ -10,7 +10,6 @@ public class Team2SortCompetition extends SortCompetition {
     @Override
     public int challengeTwo(String[] arr, String query)
     {
-        //int a=-1;
         quickSort(arr,0,arr.length-1);
         for (int i=0; i<arr.length-1; i++)
         {
@@ -33,7 +32,6 @@ public class Team2SortCompetition extends SortCompetition {
     public int challengeFour(int[][] arr)
     {
         int i=0;
-        int j=0;
         int[] medians= new int[1000];
         for( i=0; i<arr.length; i++)
         {
@@ -47,7 +45,8 @@ public class Team2SortCompetition extends SortCompetition {
     }
 
     @Override
-    public int challengeFive(Comparable[] arr, Comparable query) {
+    public int challengeFive(Comparable[] arr, Comparable query)
+    {
         return 0;
     }
 
