@@ -30,7 +30,8 @@ public class Team11SortCompetition extends SortCompetition {
 
     @Override
     public int challengeFive(Comparable[] arr, Comparable query) {
-        return 0;
+        insertionSort(arr);
+        return binarySearch(arr,query);
     }
 
     @Override
@@ -93,12 +94,30 @@ public class Team11SortCompetition extends SortCompetition {
         }
     }
 
-    public static int[] swap(int[]arr, int i, int j){
+    public static void insertionSort(Comparable[] arr){
+        for (int i = 1; i < arr.length; i++){
+            for (int j = i; j > 0; j--){
+                if(arr[j-1].compareTo(arr[j]) > 0){
+                    swap(arr, j, j-1);
+                }
+                else {
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void swap(int[]arr, int i, int j){
         int temp=arr[i];
         arr[i]=arr[j];
         arr[j]=temp;
-        return arr;
     }
+    public static void swap(Comparable[] arr, int i, int j){
+        Comparable temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+
     public static int FindMedian(int[] arr){
         if(arr.length%2==0){
             return (arr[arr.length/2]+arr[(arr.length/2)-1])/2;
@@ -106,6 +125,22 @@ public class Team11SortCompetition extends SortCompetition {
             return arr[arr.length/2];
         }
     }
+    public static int binarySearch(Comparable[] arr, Comparable x) {
+        int l = 0;
+        int L = arr.length - 1;
+        while (l <= L) {
+            int m = l + (L - l) / 2;
+            int res = x.compareTo(arr[m]);
+            if (res == 0)
+                return m;
+            if (res > 0)
+                l = m + 1;
+            else
+                L = m - 1;
+        }
+        return -1;
+    }
+
 
 
 
