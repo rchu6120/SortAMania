@@ -1,161 +1,131 @@
+import java.util.Arrays;
 import java.util.Random;
 import static java.util.Arrays.*;
 
-public abstract class Team4SortCompetition extends SortCompetition{
+public class Team4SortCompetition extends SortCompetition {
 
-    public abstract int challengeOne(int[] arr);
-    public static double findMedian(int i[], int x) {
-        sort(i);
-        if (x / 2 != 0) ;
-        return (double) i[x / 2];
-        return (double) (i[(x - 1) / 2] + i[x / 2]) / 2.0;
-        System.out.println(x);
+    public int challengeOne(int[] arr){
+        return (int) getMedian(arr);
     }
-    //merge sort
-    public static void mergeSort(int []elements){
+
+    public int challengeTwo(String[] arr, String query){
+        return 0;
+    }
+
+    public int challengeThree(int[] arr){
+        return 0;
+    }
+
+    public int challengeFour(int[][] arr){
+        return (int) getMedian(getMedianArray(arr));
+    }
+
+    public int challengeFive(Comparable[] arr, Comparable query){
+        return 0;
+    }
+
+    public String greeting(){
+        return "Welcome to Team 4's Sort A Mania!";
+    }
+
+    /** Returns median of nonempty array of ints
+     * @param ints array of ints
+     * @return median of array
+     */
+    public static double getMedian(int[] ints) {
+        int n = ints.length;
+
+        sort(ints);
+
+        if (n % 2 != 0) { // odd length
+            return ints[n / 2]; // return middle element
+        } else { // even length
+            return (ints[n / 2] + ints[1 + n / 2]) * 0.5; // return average of middle two elements
+        }
+    }
+
+    /** Returns median of nonempty array of doubles
+     * @param doubles array of doubles
+     * @return median of array
+     */
+    public static double getMedian(double[] doubles){
+        int n = doubles.length;
+
+        // TODO: Implement alternate sort algorithm, "sort" is ILLEGAL!
+        sort(doubles);
+
+        if (n % 2 != 0) { // odd length
+            return doubles[n / 2]; // return middle element
+        } else { // even length
+            return (doubles[n / 2] + doubles[1 + n / 2]) * 0.5; // return average of middle two elements
+        }
+    }
+
+    public static void mergeSort(int[] elements) {
         int n = elements.length;
-        int [] temp = new int[n];
-        mergeSortHelper(elements, 0, n-1, temp);
+        int[] temp = new int[n];
+        mergeSortHelper(elements, 0, n - 1, temp);
     }
-    private static void mergeSortHelper(int[]elements, int from, int to, int[]temp){
-        if (from<to){
-            int middle = (from+to)/2;
-            mergeSortHelper(elements,from,middle,temp);
-            mergeSortHelper(elements,middle+1, to, temp);
+
+    private static void mergeSortHelper(int[] elements, int from, int to, int[] temp) {
+        if (from < to) {
+            int middle = (from + to) / 2;
+            mergeSortHelper(elements, from, middle, temp);
+            mergeSortHelper(elements, middle + 1, to, temp);
             merge(elements, from, middle, to, temp);
         }
     }
-    private static void merge(int[]elements, int from, int mid, int to, int[]temp){
+
+    private static void merge(int[] elements, int from, int mid, int to, int[] temp) {
         int i = from;
-        int j = mid+1;
+        int j = mid + 1;
         int k = from;
 
-        while (i<=mid && j<= to){
-            if (elements[i] < elements[j])
-            {
+        while (i <= mid && j <= to) {
+            if (elements[i] < elements[j]) {
                 temp[k] = elements[i];
                 i++;
-            }
-            else {
-                temp [k]=elements[j];
+            } else {
+                temp[k] = elements[j];
                 j++;
             }
             k++;
         }
-
     }
 
+    /** Returns medians of rows of square int array
+     * @param arr square int array
+     * @return array of medians of rows of square int array
+     */
+    private static double[] getMedianArray(int[][] arr) {
+        double[] medianArr = new double[arr.length];
 
+        for (int i = 0; i < arr.length; i++) {
+            medianArr[i] = getMedian(arr[i]);
+        }
 
+        return medianArr;
+    }
 
-    public abstract int challengeTwo(String[] arr, String query);
-
-
-    public abstract int challengeThree(int[] arr);
-
-
-    public abstract int challengeFour(int[][] arr);
-
-
-    public abstract int challengeFive(Comparable[] arr, Comparable query);
-
-
-    //Add a custom greeting so your sorter can introduce itself
-    public abstract String greeting();
-    System.out.println("Welcome to Team 4's Sort A Mania!");
-	
-
-
-	//challenge 1
-//        public static void main(String args[]) {
-//            Random rgen = new Random();
-//            int[] nums = new int[10001];
-//            for (int i = 0; i < nums.length; i++) {
-//                nums[i] = i;
-//            }
-//            for (int i = 0; i < nums.length; i++) {
-//                int randomPosition = rgen.nextInt(nums.length);
-//                int temp = nums[i];
-//                nums[i] = nums[randomPosition];
-//                nums[randomPosition] = temp;
-//            }
-//            for (int i = 0; i < nums.length; i++) {
-//                System.out.println(nums[i]);
-//            }
+    public static void main(String args[]) {
+//        Random rgen = new Random();
+//        int[] nums = new int[10001];
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            nums[i] = i;
 //        }
-        public static double findMedian(int i[], int x) {
-            sort(i);
-            if (x / 2 != 0) ;
-            return (double) i[x / 2];
-            return (double) (i[(x - 1) / 2] + i[x / 2]) / 2.0;
-            System.out.println(x);
-        }
-        //merge sort
-        public static void mergeSort(int []elements){
-            int n = elements.length;
-            int [] temp = new int[n];
-            mergeSortHelper(elements, 0, n-1, temp);
-        }
-        private static void mergeSortHelper(int[]elements, int from, int to, int[]temp){
-            if (from<to){
-                int middle = (from+to)/2;
-                mergeSortHelper(elements,from,middle,temp);
-                mergeSortHelper(elements,middle+1, to, temp);
-                merge(elements, from, middle, to, temp);
-            }
-        }
-        private static void merge(int[]elements, int from, int mid, int to, int[]temp){
-            int i = from;
-            int j = mid+1;
-            int k = from;
-
-            while (i<=mid && j<= to){
-                if (elements[i] < elements[j])
-                {
-                    temp[k] = elements[i];
-                    i++;
-                }
-                else {
-                    temp [k]=elements[j];
-                    j++;
-                }
-                k++;
-            }
-
-        }
-
-    //Challenge 2
-    public class challengeTwo {
-        public static int[]randIntArr(int count){
-            int [] arr = new int [count];
-            int random = (int)(Math.random()*10000);
-            for (int i = 0; i < arr.length; i ++){
-                arr [i] = (int)(Math.random()*10001);
-            }
-            return arr;
-            public static void insertionSort (int[] arr){
-                int n = arr.length;
-                for (int i = 0; i < n; i++){
-                    int insertion = arr [i];
-                    int k = i -1;
-                    while() < 0&& arr[k] > insertion{
-                        arr [k +1] = arr[k];
-                        k = k-1;
-                    }
-                    arr [k+1]=insertion;
-                }
-
-            }
-        }
-
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            int randomPosition = rgen.nextInt(nums.length);
+//            int temp = nums[i];
+//            nums[i] = nums[randomPosition];
+//            nums[randomPosition] = temp;
+//        }
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            System.out.println(nums[i]);
+//        }
     }
-
-    //challenge 3
-    public class challengeThree{
-
-
-}
-//challenge 4
 
 }
 
