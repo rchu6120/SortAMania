@@ -6,7 +6,7 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
         //int[] randIntArr = randIntsArr(10000);
         //String[] randStringArr = randomStringArr(10000, 5);
         int[][] rand2DArray = random2DIntArray(5,5);
-
+        Comparable[] objects = randomObjArr( 10);
         System.out.println("Unsorted");
         //printIntArr(randIntArr);
         print2DIntArr(rand2DArray);
@@ -30,5 +30,9 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
         //System.out.println("Sorted");
         //printStringArr(randStringArr);
         //System.out.println(""+query+"");
+
+        System.out.println("Unsorted");
+        printObj(objects);
+
     }
 }
