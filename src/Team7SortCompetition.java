@@ -41,8 +41,8 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
-        insertionSort(arr);
-        return binarySearch(arr, query);
+        insertionSort5(arr);
+        return binarySearch5(arr, query);
     }
 
     public String greeting() {
@@ -207,11 +207,11 @@ public class Team7SortCompetition extends SortCompetition {
         }
     }
     //--------------------------------CHALLENGE FIVE----------------------------------------------------------------
-    public static void insertionSort(Comparable[] arr) {
+    public static void insertionSort5(Comparable[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
                 if (arr[j - 1].compareTo(arr[j]) > 0) {
-                    swap(arr, j, j - 1);
+                    swap5(arr, j, j - 1);
                 } else {
                     break;
                 }
@@ -219,7 +219,7 @@ public class Team7SortCompetition extends SortCompetition {
         }
     }
 
-    public static int binarySearch(Comparable[] arr, Comparable x) {
+    public static int binarySearch5(Comparable[] arr, Comparable x) {
         int l = 0, r = arr.length - 1;
         while (l <= r) {
             int m = l + (r - l) / 2;
@@ -234,7 +234,7 @@ public class Team7SortCompetition extends SortCompetition {
         return -1;
     }
 
-    public static void swap(Comparable[] arr, int a, int b) {
+    public static void swap5(Comparable[] arr, int a, int b) {
         Comparable temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
