@@ -87,7 +87,7 @@ public class Team14SortCompetition extends SortCompetition
         bubbleSort(arr);
         for (int x = 0; x < arr.length; x++)
         {
-            if (arr[x].indexOf(query) > 0 )
+            if (arr[x].equals(query))
             {
                 return x;
             }
@@ -124,18 +124,24 @@ public class Team14SortCompetition extends SortCompetition
         int x = 0;
         int[] median = new int[1000];
         int[] temp = new int[1000];
-        for (int j = 0; j < 1000; j++)
+        for (int j = 0; j < arr.length; j++)
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < arr[j].length; i++)
             {
-                temp[i]=arr[i][j];
+                temp[i]=arr[j][i];
             }
             insertionSort(temp,0,temp.length-1);
             median[x] = getMedian(temp);
             x++;
-            j++;
         }
         insertionSort(median,0,median.length-1);
+        String out = "";
+        for(int i = 0; i < median.length; i++)
+        {
+            out = out + "[" + median[i] + "] ";
+        }
+        System.out.println("\n"+out + "\n");
+
         return getMedian(median);
     }
 
