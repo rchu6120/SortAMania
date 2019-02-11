@@ -48,7 +48,6 @@ public class Team7SortCompetition extends SortCompetition {
     public String greeting() {
         return "Hi Mr. Levin! We're Ben, Jason, Byron and we're team 7";
     }
-
     //----------------------------------------------------------------------------------------------------------------
     //Creates random Int Arr
     public static int[] randIntArr(int Count) {
@@ -58,7 +57,6 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return array;
     }
-
     //Creates random String arr
     public static String[] randStringArr(int num, int length) {
         String[] array = new String[num];
@@ -75,7 +73,6 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return array;
     }
-
     //Prints String Arr
     public static String printStrArr(String[] arr) {
         String r = "";
@@ -84,7 +81,6 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return r;
     }
-
     //Prints Int Arr
     public static String printArr(int[] arr) {
         String r = "  ";
@@ -94,8 +90,7 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return r;
     }
-
-    //Quicksort (Challenge One)
+    //--------------------------------CHALLENGE ONE----------------------------------------------------------------
     public void quickSort(int arr[], int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(arr, begin, end);
@@ -104,8 +99,27 @@ public class Team7SortCompetition extends SortCompetition {
             quickSort(arr, partitionIndex + 1, end);
         }
     }
+    private int partition(int arr[], int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin - 1);
 
-    //Challenge Two
+        for (int j = begin; j < end; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+
+                int swapTemp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = swapTemp;
+            }
+        }
+
+        int swapTemp = arr[i + 1];
+        arr[i + 1] = arr[end];
+        arr[end] = swapTemp;
+
+        return i + 1;
+    }
+    //--------------------------------CHALLENGE TWO----------------------------------------------------------------
     public static void mergeSort(String[] arr) {
         if (arr.length >= 2) {
             String[] left = new String[arr.length / 2];
@@ -135,28 +149,7 @@ public class Team7SortCompetition extends SortCompetition {
             }
         }
     }
-
-    private int partition(int arr[], int begin, int end) {
-        int pivot = arr[end];
-        int i = (begin - 1);
-
-        for (int j = begin; j < end; j++) {
-            if (arr[j] <= pivot) {
-                i++;
-
-                int swapTemp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = swapTemp;
-            }
-        }
-
-        int swapTemp = arr[i + 1];
-        arr[i + 1] = arr[end];
-        arr[end] = swapTemp;
-
-        return i + 1;
-    }
-    //Challenge Three
+    //--------------------------------CHALLENGE THREE----------------------------------------------------------------
     public static void insertionSort3(int [] in, int left, int right)
     {
         for (int i =left; i < right +1; i++)
@@ -183,7 +176,7 @@ public class Team7SortCompetition extends SortCompetition {
             return (int)(arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
         }
     }
-    //Challenge Four
+    //--------------------------------CHALLENGE FOUR----------------------------------------------------------------
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
@@ -214,8 +207,7 @@ public class Team7SortCompetition extends SortCompetition {
             return (sortedArray[mid]);
         }
     }
-
-    //ChallengeFive
+    //--------------------------------CHALLENGE FIVE----------------------------------------------------------------
     public static void insertionSort(Comparable[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
