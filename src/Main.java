@@ -172,7 +172,7 @@ public class Main
 
         SortCompetition team14 = new Team14SortCompetition();
         int[] randIntArr = randIntArr(20);
-        int[][] randIntArrArr = randIntArr(10, 10);
+        int[][] randIntArrArr = randIntArr(20, 20);
         String[] randStringArr = randStringArr(20, 5);
         System.out.println("Challenge 1-5?");
         Scanner in = new Scanner(System.in);
