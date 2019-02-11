@@ -15,6 +15,7 @@ public class Runner {
 
         int[] challengeOne= Team7SortCompetition.randIntArr(10000);
         String[] challengeTwo= Team7SortCompetition.randStringArr(10000,3);
+        int[] challengeThree= Team7SortCompetition.randIntArr(100000);
         //Comparable[] challengeFive = Team7SortCompetition(1200,5);
 
 
@@ -30,12 +31,9 @@ public class Runner {
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
-
-
         //Prints out sorted Int Array
         System.out.println(Team7SortCompetition.printArr(randIntArr1));
         System.out.println("this is sorted");
-
         //Prints out sorted Int Array (ChallengeOne)
         System.out.println(Team7SortCompetition.printArr(challengeOne));
         System.out.println("Sorted");
@@ -54,10 +52,9 @@ public class Runner {
         long time3= System.currentTimeMillis();
         System.out.println(Team7SortCompetition.printArr(challengeThree));
         System.out.println("Sorted");
-        time3 = System.currentTimeMillis() - time2;
+        time3 = System.currentTimeMillis() - time3;
         System.out.println("Challenge Three Time Taken: " + time3 * 0.001 + " Seconds");
-        System.out.println("Index of query equals: " + query);
-
+        System.out.println("Median equals: " + median);
 
     }
 
