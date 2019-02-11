@@ -243,11 +243,11 @@ public class Main
 
             case "5":
 
+                String [] test5 = {"e","zz","abb","boo"};
                 System.out.println("Unsorted");
-                printArr(randIntArr);
-
+                printArr(test5);
                 time = System.currentTimeMillis();
-                median = team14.challengeFive(randStringArr, "boo");
+                median = team14.challengeFive(test5, "boo");
                 time = System.currentTimeMillis() - time;
 
                 System.out.println("Challenge Four Time Taken: " + time * .001 + " Seconds");
