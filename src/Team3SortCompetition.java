@@ -25,8 +25,8 @@ public class Team3SortCompetition extends SortCompetition {
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) { //array of 10,000 objects that implement comparable. sort using compareTo method. return position of the object or -1.
-        //you must use a stable sort
-        stableSelection(arr, arr.length);
+                                                                   //you must use a stable sort
+        comparableSort(arr);
         return search(arr, arr.length);
     }
 
@@ -72,28 +72,42 @@ public class Team3SortCompetition extends SortCompetition {
         }
     }
 
-
-    public static <T extends Comparable<T>>void stableSelection(T[] a, int n) //for chaalenge 5 lol
-    {
-        for (int curPos = 0; curPos < n - 1; curPos++)
-        {
-
-            int min = curPos;
-            for (int nextPos = curPos + 1; nextPos < n; nextPos++) {
-                if (a[min].compareTo(a[nextPos]) == -1) {
-                    min = nextPos;
+    public static void comparableSort(Comparable [] arr){ //challenge 5 yay
+        int swaps =1;
+        while (swaps>0){
+            swaps=0;
+            for(int i=0; i<arr.length-1; i++){
+                if(arr[i].compareTo(arr[i+1])<0){
+                    Comparable temp = arr[i];
+                    arr[i]= arr[i+1];
+                    arr[i+1] = temp;
+                    swaps++;
                 }
-            }   
-            T val = a[min];
-            while (min > curPos)
-            {
-                a[min] = a[min - 1];
-                min--;
             }
-
-            a[curPos] = val;
         }
     }
+//
+//    public static <T extends Comparable<T>>void stableSelection(T[] a, int n) //what kinda method signature?????
+//    {
+//        for (int curPos = 0; curPos < n - 1; curPos++)
+//        {
+//
+//            int min = curPos;
+//            for (int nextPos = curPos + 1; nextPos < n; nextPos++) {
+//                if (a[min].compareTo(a[nextPos]) == -1) {
+//                    min = nextPos;
+//                }
+//            }
+//            T val = a[min];
+//            while (min > curPos)
+//            {
+//                a[min] = a[min - 1];
+//                min--;
+//            }
+//
+//            a[curPos] = val;
+//        }
+//    }
 
 
     public static String[] arrString(int count) {
