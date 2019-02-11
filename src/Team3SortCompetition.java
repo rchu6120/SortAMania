@@ -122,17 +122,6 @@ public class Team3SortCompetition extends SortCompetition {
         return arr;
     }
 
-    public static int[] arrInt(int count) {
-        String[] arr = new String[count];
-        int i = 0;
-        int n = 0;
-        while (i < arr.length) {
-            n = (int) ((Math.random() * 11) - 1);
-            i++;
-        }
-        return arrInt(7);
-    }
-
     public static double[] arrDouble(int count) {
         String[] arr = new String[count];
         int i = 0;
