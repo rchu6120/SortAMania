@@ -21,23 +21,17 @@ public class TestRunner {
         return arr;
     }
 
-    public static void printArr(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-
-        }
-        System.out.println();
-    }
 
     public static void main(String[] args)
     {
         SortCompetition team13 = new Team13SortCompetition();
         int[] randIntArr = randomIntsArr(10000);
-        String[] randomStringArr = randomStringArr(10000, 5);
+        String[] randomStringArr = {"ha","hc","hb","hd"};
 
         System.out.println("Unsorted");
-        printArr(randIntArr);
+        Team13SortCompetition.printArr(randIntArr);
 
+        //Challenge One
         long time = System.currentTimeMillis();
         int median = team13.challengeOne(randIntArr);
         time = System.currentTimeMillis() - time;
@@ -45,9 +39,22 @@ public class TestRunner {
         System.out.println("Median equals: " + median);
 
         System.out.println("Sorted");
-        printArr(randIntArr);
+       Team13SortCompetition.printArr(randIntArr);
 
-        int[][] doubleArr = Sorting_Algorithims.doubleRandIntArr();
+        //Challenge Two
+        System.out.println("Unsorted");
+        Team13SortCompetition.printArr(randomStringArr);
+
+        long time2 = System.currentTimeMillis();
+        int indexOfQuery = team13.challengeTwo(randomStringArr,"query");
+        time2 = System.currentTimeMillis() - time2;
+        System.out.println("Challenge Two Time Taken: " + time * 0.001 + " Seconds");
+        System.out.println("Index equals: " + indexOfQuery);
+
+        System.out.println("Sorted");
+        Team13SortCompetition.printArr(randomStringArr);
+        //Challenger Four
+        /*int[][] doubleArr = Sorting_Algorithims.doubleRandIntArr();
         System.out.println("Unsorted");
         System.out.println(Arrays.toString(doubleArr));
         time = System.currentTimeMillis();
@@ -57,18 +64,9 @@ public class TestRunner {
         System.out.println("Median equals: " +median);
 
         System.out.println("Sorted");
-        System.out.println(Arrays.toString(doubleArr));
+        System.out.println(Arrays.toString(doubleArr));*/
 
 
-        long time1 = System.currentTimeMillis();
-        int median1 = team13.challengeTwo(randomStringArr,"W");
-        time1 = System.currentTimeMillis() - time1;
-        System.out.println("Challenge Two Time Taken: " + time1 * 0.001 + "Seconds");
-        System.out.println("Median equals: " + median1);
-
-        System.out.println("Sorted");
-        printArr(randIntArr);
-
-            }
-                }
+    }
+}
 

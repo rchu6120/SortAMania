@@ -16,10 +16,8 @@ public class Team13SortCompetition extends SortCompetition
     }
     @Override
     public int challengeTwo(String[] arr, String query) {
-        for(int i = 0; i< arr.length;i++)
-        {
             Sorting_Algorithims.selectionSort(arr);
-        }
+
         return Sorting_Algorithims.indexOfArrayOfStrings(arr,query);
     }
 
@@ -58,5 +56,20 @@ public class Team13SortCompetition extends SortCompetition
     @Override
     public String greeting() {
         return "Welcome to Camp Crystal Lake";
+    }
+
+    public static void printArr(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+
+        }
+        System.out.println();
+    }
+    public static void printArr(String[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+
+        }
+        System.out.println();
     }
 }

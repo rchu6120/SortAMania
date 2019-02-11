@@ -63,7 +63,6 @@ public class Sorting_Algorithims {
                     temp[k] = arr2[j];
                     j++;
                 }
-                k++;
         }
         while(i<= mid)
         {
@@ -84,7 +83,7 @@ public class Sorting_Algorithims {
         {
             int middle = (from + to)/2;
             doubleMergeSortHelper(arr2,from,middle,temp);
-            doubleMergeSortHelper(arr2,middle+1, to, temp);
+            doubleMergeSortHelper(arr2,from,middle,temp);
             doubleMerge(arr2,from,middle,to,temp);
         }
     }
@@ -131,6 +130,12 @@ public class Sorting_Algorithims {
             }
         }
     }
+    public static void stringSwap(String[] arr, int i, int j){
+        String a = arr[i];
+        arr[i] = arr[j];
+        arr[j] = a;
+
+    }
 
    public static void selectionSort(String[] arr)
     {
@@ -138,7 +143,9 @@ public class Sorting_Algorithims {
             int min = j;
             for(int k = j+1; k <arr.length; k++){
                 if (arr[k].compareTo(arr[min]) < 0) min =k;
-                stringSwap(arr,j,min);
+                String temp = arr[j];
+                arr[j] = arr[min];
+                arr[min] = temp;
             }
 
         }
@@ -152,12 +159,7 @@ public class Sorting_Algorithims {
         return -1;
     }
     String [] TestArr = {"Arr", "Tell", "weather","car"};
-    public static void stringSwap(String[] arr, int i, int j){
-        String a = arr[i];
-        arr[i] = arr[j];
-        arr[j] = a;
 
-    }
 
     public Comparable[] randomThingArr(int num)
     {
@@ -228,4 +230,5 @@ public class Sorting_Algorithims {
         }
         return doubleArr;
     }
+
 }
