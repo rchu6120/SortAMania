@@ -11,6 +11,7 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return median;
     }
+
     public int challengeTwo(String[] arr, String query) {
         int a = -1;
         mergeSort(arr);
@@ -20,10 +21,13 @@ public class Team7SortCompetition extends SortCompetition {
             }
         }
         return a;
+        return a;
     }
+
     public int challengeThree(int[] arr) {
-        return  getMedian(arr);
+        return getMedian(arr);
     }
+
     public int challengeFour(int[][] arr) {
         int[] median = new int[arr.length];
         int[] temp = new int[arr.length];
@@ -37,14 +41,18 @@ public class Team7SortCompetition extends SortCompetition {
         insertionSort(median, 0, median.length - 1);
         return getMedian(median);
     }
+
     public int challengeFive(Comparable[] arr, Comparable query) {
         mergeSort(arr);
         return binarySearch(arr, query);
     }
+
     public String greeting() {
         return "Hi Mr. Levin! We're Ben, Jason, Byron and we're team 7";
     }
+
     //----------------------------------------------------------------------------------------------------------------
+    //Creates random Int Arr
     public static int[] randIntArr(int Count) {
         int[] array = new int[Count];
         for (int i = 0; i < array.length; i++) {
@@ -53,6 +61,7 @@ public class Team7SortCompetition extends SortCompetition {
         return array;
     }
 
+    //Creates random String arr
     public static String[] randStringArr(int num, int length) {
         String[] array = new String[num];
         while (num > 0) {
@@ -69,6 +78,7 @@ public class Team7SortCompetition extends SortCompetition {
         return array;
     }
 
+    //Prints String Arr
     public static String printStrArr(String[] arr) {
         String r = "";
         for (int i = 0; i < arr.length; i++) {
@@ -77,7 +87,7 @@ public class Team7SortCompetition extends SortCompetition {
         return r;
     }
 
-
+    //Prints Int Arr
     public static String printArr(int[] arr) {
         String r = "  ";
 
@@ -87,6 +97,7 @@ public class Team7SortCompetition extends SortCompetition {
         return r;
     }
 
+    //Quicksort (Challenge One)
     public void quickSort(int arr[], int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(arr, begin, end);
@@ -96,6 +107,7 @@ public class Team7SortCompetition extends SortCompetition {
         }
     }
 
+    //Challenge Two
     public static void mergeSort(String[] arr) {
         if (arr.length >= 2) {
             String[] left = new String[arr.length / 2];
@@ -147,26 +159,28 @@ public class Team7SortCompetition extends SortCompetition {
         return i + 1;
     }
 
+    //Challenge Five
     public static void mergeSort(Comparable[] arr) {
         int n = arr.length;
         Comparable[] temp = new Comparable[n];
         mergeSortHelper2(arr, 0, n - 1, temp);
     }
 
-    public static void mergeSortHelper2(Comparable[] arr, int left, int right Comparable[] temp) {
+    //Challenge Five mergeSort
+    public static void mergeSortHelper2(Comparable[] arr, int left, int right Comparable[]temp) {
         if (left < right) {
             int mid = (left + right) / 2;
-            mergeSortHelper(arr, left, mid, temp);
-            mergeSortHelper(arr, mid + 1, right, temp);
+            mergeSortHelper2(arr, left, mid, temp);
+            mergeSortHelper2(arr, mid + 1, right, temp);
             merge(arr, left, mid, right, temp);
         }
     }
 
-    public static void merge(Comparable[] arr, int from, int mid, int to, Comparable[] temp) {
-        int i = from;
+    public static void merge(Comparable[] arr, int left, int mid, int right, Comparable[] temp) {
+        int i = left;
         int j = mid + 1;
-        int k = from;
-        while (i <= mid && j <= to) {
+        int k = left;
+        while (i <= mid && j <= right) {
             if (arr[i].compareTo(arr[j]) < 0) {
                 temp[k] = arr[i];
                 i++;
@@ -181,12 +195,12 @@ public class Team7SortCompetition extends SortCompetition {
             i++;
             k++;
         }
-        while (j <= to) {
+        while (j <= right) {
             temp[k] = arr[j];
             j++;
             k++;
         }
-        for (k = from; k <= to; k++) {
+        for (k = left; k <= right; k++) {
             arr[k] = temp[k];
         }
     }
@@ -207,6 +221,7 @@ public class Team7SortCompetition extends SortCompetition {
         return -1;
     }
 
+    //Challenge Four
     public static void insertionSort(int[] in, int left, int right) {
         for (int i = left; i < right + 1; i++) {
             for (int a = i; a > 0; a--) {
@@ -221,18 +236,5 @@ public class Team7SortCompetition extends SortCompetition {
         int temp = arr[x];
         arr[x] = arr[y];
         arr[y] = temp;
-    }
-    public static int getMedian(int[] sortedArray){
-        int l = sortedArray.length;
-        int mid = l/2;
-        if(l == 0){
-            return -1;
-        }
-        if (l % 2 == 0){
-            return ((sortedArray[mid]+sortedArray[mid-1])/2);
-        }
-        else {
-            return (sortedArray[mid]);
-        }
     }
 }
