@@ -50,6 +50,7 @@ public class Runner {
 
         //Challenge Three
         long time3= System.currentTimeMillis();
+        int time03 = Team7SortCompetition.challengeThree(100000);
         System.out.println(Team7SortCompetition.printArr(challengeThree));
         System.out.println("Sorted");
         time3 = System.currentTimeMillis() - time3;

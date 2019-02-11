@@ -32,12 +32,12 @@ public class Team7SortCompetition extends SortCompetition {
         for (int i = 0; i < arr.length; i++) {
             insertionSort4(arr[i]);
         }
-        int[] medians = new int[arr.length];
+        int[] median = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            medians[i] = getMedian4(arr[i]);
+            median[i] = getMedian4(arr[i]);
         }
-        insertionSort4(medians);
-        return (getMedian4(medians));
+        insertionSort4(median);
+        return (getMedian4(median));
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
@@ -193,7 +193,6 @@ public class Team7SortCompetition extends SortCompetition {
         arr[a] = arr[b];
         arr[b] = temp;
     }
-
     public static int getMedian4(int[] sortedArray) {
         int a = sortedArray.length;
         int mid = a / 2;
@@ -233,7 +232,6 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return -1;
     }
-
     public static void swap5(Comparable[] arr, int a, int b) {
         Comparable temp = arr[a];
         arr[a] = arr[b];
