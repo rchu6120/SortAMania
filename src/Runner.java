@@ -51,7 +51,7 @@ public class Runner {
         printArr(randStringArr);
 
         long time = System.currentTimeMillis();
-        int median = team2. challengeOne(randomIntsArr);
+        int median = team2.challengeTwo(randomStringArr(0,10000),randStringArr[100]);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
