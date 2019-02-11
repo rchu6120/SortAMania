@@ -44,7 +44,7 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public String greeting() {
-        return "We are team zero!";
+        return "We are team zero (Ricky and Kiran)! Our speed is unmatched!";
     }
 
     //Challenge One Code
@@ -244,90 +244,6 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Helper Methods
-    public static int[] randomIntsArr(int count) {
-        int[] randomArr = new int[count];
-        for (int i = 0; i < randomArr.length; i++) {
-            randomArr[i] = (int) (Math.random() * 10001);
-        }
-        return randomArr;
-    }
-
-    public static int[][] randomTwoDArr(int count) {
-        int[][] randomTwoDArray = new int[count][count];
-        for (int i = 0; i < randomTwoDArray.length; i++) {
-            for (int j = 0; j < randomTwoDArray[count - 1].length; j++) {
-                randomTwoDArray[i][j] = (int) (Math.random() * 10001);
-            }
-        }
-        return randomTwoDArray;
-    }
-
-    public static String[] randomStringArr(int num, int length) {
-        String[] arr = new String[num];
-        while (num > 0) {
-            int i = 0;
-            String s = "";
-            while (i < length) {
-                char c = (char) ((Math.random() * 26) + 97);
-                s = s + c;
-                i++;
-            }
-            num--;
-            arr[num] = s;
-        }
-        return arr;
-    }
-
-    public static int[] mostlySortedBigArray(int num) {
-        int[] arr = new int[num];
-        arr[0] = (int) (Math.random() * 10) + 1;
-        for (int a = 1; a < arr.length; a++) {
-            arr[a] = arr[a - 1] + (int) (Math.random() * 12) - 2;
-        }
-        return arr;
-    }
-
-    public static void printArr(int[] arr) {
-        for (int num : arr) {
-            System.out.print(num + ", ");
-        }
-        System.out.println();
-    }
-
-    public static void printArr(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                System.out.print(arr[i][j] + " ");
-            }
-            int median = median(arr[i]);
-            System.out.print("Median: " + median);
-            System.out.println("");
-        }
-    }
-
-    public static void printArr(String[] arr) {
-        String total = "";
-        for (int i = 0; i < arr.length; i++) {
-            total += arr[i] + ", ";
-        }
-        System.out.println(total);
-    }
-
-    public static void printArr(thejuice[] arr) {
-        String total = "";
-        for (int i = 0; i < arr.length; i++) {
-            total += "j" + i + ": " + arr[i].howmuchjuice + ", ";
-        }
-        System.out.println(total);
-    }
-
-    public static thejuice[] randomJuiceArr(int num) {
-        thejuice[] thejuices = new thejuice[num];
-        for (int i = 0; i < num; i++) {
-            thejuices[i] = new thejuice();
-        }
-        return thejuices;
-    }
 
     public static int median(int[] arr) {
         int middle = arr.length / 2;
