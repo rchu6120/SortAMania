@@ -166,13 +166,14 @@ public class Team7SortCompetition extends SortCompetition {
     }
     public static int getMedian3 (int [] arr)
     {
+        int a = arr.length/2;
         if (arr.length % 2 != 0)
         {
-            return (int)(arr[(arr.length / 2) + 1 ]);
+            return (arr[(a) + 1 ]);
         }
         else
         {
-            return (int)(arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
+            return (arr [a] + arr [a-1 ] ) / 2;
         }
     }
     //--------------------------------CHALLENGE FOUR----------------------------------------------------------------
@@ -187,7 +188,6 @@ public class Team7SortCompetition extends SortCompetition {
             }
         }
     }
-
     public static void swap4(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];
@@ -195,12 +195,12 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public static int getMedian4(int[] sortedArray) {
-        int l = sortedArray.length;
-        int mid = l / 2;
-        if (l == 0) {
+        int a = sortedArray.length;
+        int mid = a / 2;
+        if (a == 0) {
             return -1;
         }
-        if (l % 2 == 0) {
+        if (a % 2 == 0) {
             return ((sortedArray[mid] + sortedArray[mid - 1]) / 2);
         } else {
             return (sortedArray[mid]);
@@ -218,18 +218,18 @@ public class Team7SortCompetition extends SortCompetition {
             }
         }
     }
-
-    public static int binarySearch5(Comparable[] arr, Comparable x) {
-        int l = 0, r = arr.length - 1;
-        while (l <= r) {
-            int m = l + (r - l) / 2;
-            int res = x.compareTo(arr[m]);
-            if (res == 0)
-                return m;
-            if (res > 0)
-                l = m + 1;
+    public static int binarySearch5(Comparable[] arr, Comparable a) {
+        int i = 0;
+        int j = arr.length - 1;
+        int k = i + (j - i) / 2;
+        int l = a.compareTo(arr[k]);
+        while (i <= j) {
+            if (l == 0)
+                return k;
+            if (l > 0)
+                i = k + 1;
             else
-                r = m - 1;
+                j = k - 1;
         }
         return -1;
     }
