@@ -79,32 +79,32 @@ public class Team11SortCompetition extends SortCompetition {
         }
 
     }
-    public static void insertionSort(int arr[])
+    public static void insertionSort(int[] arr)
     {
-        for (int i=1; i<arr.length; ++i)
+        for (int i=1; i<arr.length; i++)
         {
-            int key = arr[i];
-            int j = i-1;
-            while (j>=0 && arr[j] > key)
+            int currentVal = arr[i];
+            int lastVal = i-1;
+            while (lastVal>=0 && arr[lastVal] > currentVal)
             {
-                arr[j+1] = arr[j];
-                j = j-1;
+                arr[lastVal+1] = arr[lastVal];
+                lastVal = lastVal-1;
             }
-            arr[j+1] = key;
+            arr[lastVal+1] = currentVal;
         }
     }
 
     public static void insertionSort(Comparable[] arr){
-        for (int i=1; i<arr.length; ++i)
+        for (int i=1; i<arr.length; i++)
         {
-            Comparable key = arr[i];
-            int j = i-1;
-            while (j>=0 && arr[j].compareTo(arr[i])>0)
+            Comparable currentVal = arr[i];
+            int lastVal = i-1;
+            while (lastVal>=0 && arr[lastVal].compareTo(arr[i])>0)
             {
-                arr[j+1] = arr[j];
-                j = j-1;
+                arr[lastVal+1] = arr[lastVal];
+                lastVal = lastVal-1;
             }
-            arr[j+1] = key;
+            arr[lastVal+1] = currentVal;
         }
     }
 
