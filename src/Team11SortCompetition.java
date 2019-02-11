@@ -1,3 +1,5 @@
+//Authors: Allen Chen & Johnathan
+
 public class Team11SortCompetition extends SortCompetition {
     @Override
     public int challengeOne(int[] arr) {
@@ -390,7 +392,7 @@ public class Team11SortCompetition extends SortCompetition {
 
         String endNum=arr[high];
         String begNum=arr[low];
-        int middleIndex= (int)((low+high)/2);
+        int middleIndex= ((low+high)/2);
         String middle=arr[middleIndex];
 
         if(middle.compareTo(endNum)<0)
