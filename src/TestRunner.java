@@ -25,8 +25,8 @@ public class TestRunner {
     public static void main(String[] args)
     {
         SortCompetition team13 = new Team13SortCompetition();
-        int[] randIntArr = randomIntsArr(10000);
-        String[] randomStringArr = {"ha","hc","hb","hd"};
+        int[] randIntArr = {1,2,4,5,8,9,0,7,2,1,4,2,6,5,9,6};
+        String[] randomStringArr = randomStringArr(10000, 5);
 
         System.out.println("Unsorted");
         Team13SortCompetition.printArr(randIntArr);
