@@ -72,7 +72,7 @@ public class Team3SortCompetition extends SortCompetition {
         }
     }
 
-    public static void comparableSort(Comparable [] arr){ //challenge 5 yay
+    public static void comparableSort(Comparable [] arr){ //challenge 5 yay. bubble sort but for comparable objects
         int swaps =1;
         while (swaps>0){
             swaps=0;
@@ -85,52 +85,6 @@ public class Team3SortCompetition extends SortCompetition {
                 }
             }
         }
-    }
-//
-//    public static <T extends Comparable<T>>void stableSelection(T[] a, int n) //what kinda method signature?????
-//    {
-//        for (int curPos = 0; curPos < n - 1; curPos++)
-//        {
-//
-//            int min = curPos;
-//            for (int nextPos = curPos + 1; nextPos < n; nextPos++) {
-//                if (a[min].compareTo(a[nextPos]) == -1) {
-//                    min = nextPos;
-//                }
-//            }
-//            T val = a[min];
-//            while (min > curPos)
-//            {
-//                a[min] = a[min - 1];
-//                min--;
-//            }
-//
-//            a[curPos] = val;
-//        }
-//    }
-
-
-    public static String[] arrString(int count) {
-        String[] arr = new String[count];
-        int i = 0;
-        String s = "";
-        while (i < arr.length) {
-            char c = (char) ((Math.random() * 26) + 97);
-            s = s + c;
-            i++;
-        }
-        return arr;
-    }
-
-    public static double[] arrDouble(int count) {
-        String[] arr = new String[count];
-        int i = 0;
-        double n = 0;
-        while (i < arr.length) {
-            n = ((Math.random() * 11) - 1);
-            i++;
-        }
-        return arrDouble(7);
     }
 
     public static int median(int[] arr) { //finds the median of an int array
@@ -150,7 +104,7 @@ public class Team3SortCompetition extends SortCompetition {
         return -1;
     }
 
-    public static int twoDimensionSort(int[][] arr) {
+    public static int twoDimensionSort(int[][] arr) { //sorts the inside of the sub arrays and then sorts them in order by their medians
 
         for (int i = 0; i < arr.length; i++) {
             intBubbleSort(arr[i]); //sorts sub arrys OwO
@@ -166,7 +120,7 @@ public class Team3SortCompetition extends SortCompetition {
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
                     swaps++;
-                } //bubble sort for the subarrays
+                } //bubble sort but for the sub arrays
             }
         }
 
