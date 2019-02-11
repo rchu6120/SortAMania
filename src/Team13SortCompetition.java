@@ -23,7 +23,8 @@ public class Team13SortCompetition extends SortCompetition
 
     @Override
     public int challengeThree(int[] arr) {
-        return 0;
+        Sorting_Algorithims.insertionSort(arr);
+        return Sorting_Algorithims.getMedian(arr) ;
     }
     //Insertion sort for the win.
     @Override

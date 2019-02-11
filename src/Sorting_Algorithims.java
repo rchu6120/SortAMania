@@ -124,18 +124,20 @@ public class Sorting_Algorithims {
     }
     public static void insertionSort(int[] arr)
     {
-        for(int curCheck = 0; curCheck <arr.length-1;curCheck++)
-        {
-            if(arr[curCheck]>arr[curCheck+1])
+
+            int n = arr.length;
+            for (int i=1; i<n; ++i)
             {
-                for(int i =curCheck; i>=0;i--)
+                int key = arr[i];
+                int j = i-1;
+                while (j>=0 && arr[j] > key)
                 {
-                    if (arr[i] > arr[i+1])
-                    { intSwap(arr,i,i+1);}
+                    arr[j+1] = arr[j];
+                    j = j-1;
                 }
+                arr[j+1] = key;
             }
         }
-    }
     public static void stringSwap(String[] arr, int i, int j){
         String a = arr[i];
         arr[i] = arr[j];
@@ -237,6 +239,16 @@ public class Sorting_Algorithims {
             }
         }
         return doubleArr;
+    }
+    public static int getMedian(int[] arr) {
+        // to find the median
+        int middle = arr.length / 2;
+        int median = 0;
+        if (arr.length % 2 == 1)
+            median = arr[middle];
+        else
+            median = (arr[middle - 1] + arr[middle]) / 2;
+        return median;
     }
 
 }

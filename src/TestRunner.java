@@ -53,6 +53,21 @@ public class TestRunner {
 
         System.out.println("Sorted");
         Team13SortCompetition.printArr(randomStringArr);
+        //Challenge 3
+        int[] randIntArr2 = randomIntsArr(100000);
+        System.out.println("Unsorted");
+        Team13SortCompetition.printArr(randIntArr2);
+
+        long time3 = System.currentTimeMillis();
+        int median3 = team13.challengeOne(randIntArr2);
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
+        System.out.println("Median equals: " + median);
+
+        System.out.println("Sorted");
+        Team13SortCompetition.printArr(randIntArr);
+
+
         //Challenger Four
         /*int[][] doubleArr = Sorting_Algorithims.doubleRandIntArr();
         System.out.println("Unsorted");
