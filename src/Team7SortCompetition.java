@@ -30,14 +30,14 @@ public class Team7SortCompetition extends SortCompetition {
 
     public int challengeFour(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
-            insertionSort(arr[i]);
+            insertionSort4(arr[i]);
         }
         int[] medians = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            medians[i] = getMedian(arr[i]);
+            medians[i] = getMedian4(arr[i]);
         }
-        insertionSort(medians);
-        return (getMedian(medians));
+        insertionSort4(medians);
+        return (getMedian4(medians));
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
@@ -150,15 +150,15 @@ public class Team7SortCompetition extends SortCompetition {
         }
     }
     //--------------------------------CHALLENGE THREE----------------------------------------------------------------
-    public static void insertionSort3(int [] in, int left, int right)
+    public static void insertionSort3(int [] arr, int left, int right)
     {
         for (int i =left; i < right +1; i++)
         {
             for(int a = i; a >0; a--)
             {
-                if (in[a]<in[a-1])
+                if (arr[a]<arr[a-1])
                 {
-                    swap(in,a,a-1);
+                    swap4(arr,a,a-1);
                 }
                 else a = 0;
             }
@@ -170,18 +170,17 @@ public class Team7SortCompetition extends SortCompetition {
         {
             return (int)(arr[(arr.length / 2) + 1 ]);
         }
-        // if even
         else
         {
             return (int)(arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
         }
     }
     //--------------------------------CHALLENGE FOUR----------------------------------------------------------------
-    public static void insertionSort(int[] arr) {
+    public static void insertionSort4(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
                 if (arr[j - 1] > arr[j]) {
-                    swap(arr, j, j - 1);
+                    swap4(arr, j, j - 1);
                 } else {
                     break;
                 }
@@ -189,13 +188,13 @@ public class Team7SortCompetition extends SortCompetition {
         }
     }
 
-    public static void swap(int[] arr, int a, int b) {
+    public static void swap4(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
     }
 
-    public static int getMedian(int[] sortedArray) {
+    public static int getMedian4(int[] sortedArray) {
         int l = sortedArray.length;
         int mid = l / 2;
         if (l == 0) {
