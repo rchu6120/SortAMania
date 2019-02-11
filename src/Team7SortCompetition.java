@@ -25,25 +25,24 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public int challengeThree(int[] arr) {
-        return getMedian(arr);
+        insertionSort3(arr,0, arr.length-1);
+        return getMedian3(arr);
     }
 
     public int challengeFour(int[][] arr) {
-        int[] median = new int[arr.length];
-        int[] temp = new int[arr.length];
-        for (int j = 0; j < arr.length; j++) {
-            for (int i = 0; i < arr[j].length; i++) {
-                temp[i] = arr[j][i];
-            }
-            insertionSort(temp, 0, temp.length - 1);
-            median[j] = getMedian(temp);
+        for (int i = 0; i < arr.length; i++) {
+            insertionSort(arr[i]);
         }
-        insertionSort(median, 0, median.length - 1);
-        return getMedian(median);
+        int[] medians = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            medians[i] = getMedian(arr[i]);
+        }
+        insertionSort(medians);
+        return (getMedian(medians));
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
-        mergeSort(arr);
+        insertionSort(arr);
         return binarySearch(arr, query);
     }
 
@@ -158,83 +157,96 @@ public class Team7SortCompetition extends SortCompetition {
 
         return i + 1;
     }
-
-    //Challenge Five
-    public static void mergeSort(Comparable[] arr) {
-        int n = arr.length;
-        Comparable[] temp = new Comparable[n];
-        mergeSortHelper2(arr, 0, n - 1, temp);
-    }
-
-    //Challenge Five mergeSort
-    public static void mergeSortHelper2(Comparable[] arr, int left, int right Comparable[]temp) {
-        if (left < right) {
-            int mid = (left + right) / 2;
-            mergeSortHelper2(arr, left, mid, temp);
-            mergeSortHelper2(arr, mid + 1, right, temp);
-            merge(arr, left, mid, right, temp);
-        }
-    }
-
-    public static void merge(Comparable[] arr, int left, int mid, int right, Comparable[] temp) {
-        int i = left;
-        int j = mid + 1;
-        int k = left;
-        while (i <= mid && j <= right) {
-            if (arr[i].compareTo(arr[j]) < 0) {
-                temp[k] = arr[i];
-                i++;
-            } else {
-                temp[k] = arr[j];
-                j++;
+    //Challenge Three
+    public static void insertionSort3(int [] in, int left, int right)
+    {
+        for (int i =left; i < right +1; i++)
+        {
+            for(int a = i; a >0; a--)
+            {
+                if (in[a]<in[a-1])
+                {
+                    swap(in,a,a-1);
+                }
+                else a = 0;
             }
-            k++;
         }
-        while (i <= mid) {
-            temp[k] = arr[i];
-            i++;
-            k++;
+    }
+    public static int getMedian3 (int [] arr)
+    {
+        if (arr.length % 2 != 0)
+        {
+            return (int)(arr[(arr.length / 2) + 1 ]);
         }
-        while (j <= right) {
-            temp[k] = arr[j];
-            j++;
-            k++;
+        // if even
+        else
+        {
+            return (int)(arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
         }
-        for (k = left; k <= right; k++) {
-            arr[k] = temp[k];
+    }
+    //Challenge Four
+    public static void insertionSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arr[j - 1] > arr[j]) {
+                    swap(arr, j, j - 1);
+                } else {
+                    break;
+                }
+            }
         }
     }
 
-    public static int binarySearch(Comparable[] elements, Comparable target) {
-        int left = 0;
-        int right = elements.length - 1;
-        while (left <= right) {
-            int middle = (left + right) / 2;
-            if (target.compareTo(elements[middle]) < 0) {
-                right = middle - 1;
-            } else if (target.compareTo(elements[middle]) > 0) {
-                left = middle + 1;
-            } else if (target.equals(elements[middle])) {
-                return middle;
+    public static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+    public static int getMedian(int[] sortedArray) {
+        int l = sortedArray.length;
+        int mid = l / 2;
+        if (l == 0) {
+            return -1;
+        }
+        if (l % 2 == 0) {
+            return ((sortedArray[mid] + sortedArray[mid - 1]) / 2);
+        } else {
+            return (sortedArray[mid]);
+        }
+    }
+
+    //ChallengeFive
+    public static void insertionSort(Comparable[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arr[j - 1].compareTo(arr[j]) > 0) {
+                    swap(arr, j, j - 1);
+                } else {
+                    break;
+                }
             }
+        }
+    }
+
+    public static int binarySearch(Comparable[] arr, Comparable x) {
+        int l = 0, r = arr.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            int res = x.compareTo(arr[m]);
+            if (res == 0)
+                return m;
+            if (res > 0)
+                l = m + 1;
+            else
+                r = m - 1;
         }
         return -1;
     }
 
-    //Challenge Four
-    public static void insertionSort(int[] in, int left, int right) {
-        for (int i = left; i < right + 1; i++) {
-            for (int a = i; a > 0; a--) {
-                if (in[a] < in[a - 1]) {
-                    swap(in, a, a - 1);
-                } else a = 0;
-            }
-        }
-    }
-
-    public static void swap(int[] arr, int x, int y) {
-        int temp = arr[x];
-        arr[x] = arr[y];
-        arr[y] = temp;
+    public static void swap(Comparable[] arr, int a, int b) {
+        Comparable temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 }
