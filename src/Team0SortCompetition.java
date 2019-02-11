@@ -44,7 +44,7 @@ public class Team0SortCompetition extends SortCompetition {
 
     @Override
     public String greeting() {
-        return "We are team zero (Ricky and Kiran)! Our speed is unmatched!";
+        return "We are team zero Ricky and Kiran! Our speed is unmatched!";
     }
 
     //Challenge One Code
@@ -244,7 +244,6 @@ public class Team0SortCompetition extends SortCompetition {
     }
 
     //Helper Methods
-
     public static int median(int[] arr) {
         int middle = arr.length / 2;
         if (arr.length % 2 == 1) {
