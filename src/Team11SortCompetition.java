@@ -7,13 +7,15 @@ public class Team11SortCompetition extends SortCompetition {
 
     @Override
     public int challengeTwo(String[] arr, String query) {
+
         quickSortString(arr, 0,arr.length-1);
         return binarySearch(arr, 0, arr.length-1, query, arr.length);
+
     }
 
     @Override
     public int challengeThree(int[] arr) {
-        insertionSort(arr);
+        mergeSort(arr);
         return FindMedian(arr);
     }
 
@@ -38,7 +40,7 @@ public class Team11SortCompetition extends SortCompetition {
 
     @Override
     public String greeting() {
-        return "Ari absolutely cannot win! We are Team 11 BTW \n -Allen and Johnathan";
+        return "Ari is not gonna win. We are Team 11 BTW \n Allen and Johnathan";
     }
 
     private static void merge(int[] elements, int from, int mid, int to, int[] temp)
@@ -100,32 +102,46 @@ public class Team11SortCompetition extends SortCompetition {
         return -1;
     }
 
+    public static void mergeSort(int[] arr){
+        int n=arr.length;
+        int[] temp=new int[n];
+        mergeSortHelper(arr,0,n-1,temp);
+    }
+
+    public static void mergeSortHelper(int[] arr, int left, int right,int[]temp){
+        if(left<right){
+            int mid=(left+right)/2;
+            mergeSortHelper(arr,left,mid,temp);
+            mergeSortHelper(arr,mid+1,right,temp);
+            merge(arr,left,mid,right,temp);
+        }
+    }
     public static void insertionSort(int[] arr)
     {
-        int currentPos=1;
-        for(int i=1; i<arr.length; i++)
+        for (int i=1; i<arr.length; i++)
         {
-            for(int j=i; j>0; j--)
+            int currentVal = arr[i];
+            int lastVal = i-1;
+            while (lastVal>=0 && arr[lastVal] > currentVal)
             {
-                if (arr[j]<arr[j-1]) {
-                    swap(arr, j,j-1 );
-                }else if(arr[j]>arr[j-1]){
-                    break;
-                }
+                arr[lastVal+1] = arr[lastVal];
+                lastVal = lastVal-1;
             }
+            arr[lastVal+1] = currentVal;
         }
     }
 
     public static void insertionSort(Comparable[] arr){
-        for (int i = 1; i < arr.length; i++){
-            for (int j = i; j > 0; j--){
-                if(arr[j-1].compareTo(arr[j]) > 0){
-                    swap(arr, j, j-1);
-                }
-                else {
-                    break;
-                }
+        for (int i=1; i<arr.length; i++)
+        {
+            Comparable currentVal = arr[i];
+            int lastVal = i-1;
+            while (lastVal>=0 && arr[lastVal].compareTo(arr[i])>0)
+            {
+                arr[lastVal+1] = arr[lastVal];
+                lastVal = lastVal-1;
             }
+            arr[lastVal+1] = currentVal;
         }
     }
 
@@ -215,13 +231,106 @@ public class Team11SortCompetition extends SortCompetition {
         return result;
     }
 
+    public static int partition(int[] arr, int low, int high)
+    {
+        int pivot = arr[high];
+        int i = (low-1); // index of smaller element
+        for (int j=low; j<high; j++)
+        {
+            // If current element is smaller than or
+            // equal to pivot
+            if (arr[j] <= pivot)
+            {
+                i++;
+
+                // swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+
+    public static void quickSort(int[] arr, int low, int high)
+    {
+
+
+        if (low < high)
+        {
+            int pi = partition(arr, low, high);
+
+            quickSort(arr, low, pi-1);
+            quickSort(arr, pi+1, high);
+        }
+    }
+    public static int partition2(int[] arr, int low, int high)
+    {
+        int endNum=arr[high];
+        int begNum=arr[low];
+        int middleIndex= (int)((low+high)/2);
+        int middle=arr[middleIndex];
+
+        if(begNum > middle)
+        {
+            swap(arr, low, middleIndex);
+        }
+        if(begNum>endNum)
+        {
+            swap(arr, low, high);
+        }
+        if(middle > endNum)
+        {
+            swap(arr, middleIndex,high);
+        }
+
+        int pivot = arr[high];
+        int i = (low-1); // index of smaller element
+        for (int j=low; j<high; j++)
+        {
+            // If current element is smaller than or
+            // equal to pivot
+            if (arr[j] <= pivot)
+            {
+                i++;
+
+                // swap arr[i] and arr[j]
+                swap(arr, i, j);
+            }
+        }
+
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+
+    public static void quickSort2(int arr[], int low, int high)
+    {
+        if (low < high)
+        {
+            int pi = partition2(arr, low, high);
+
+            quickSort2(arr, low, pi-1);
+            quickSort2(arr, pi+1, high);
+        }
+    }
+
 
     public static int partition3(int[] arr, int low, int high)
     {
 
         int endNum=arr[high];
         int begNum=arr[low];
-        int middleIndex= ((low+high)/2);
+        int middleIndex= (int)((low+high)/2);
         int middle=arr[middleIndex];
 
         if(middle < endNum)
@@ -266,7 +375,7 @@ public class Team11SortCompetition extends SortCompetition {
         }
     }
 
-    public static void quickSort3(int[] arr, int low, int high)
+    public static void quickSort3(int arr[], int low, int high)
     {
         if (low < high)
         {
@@ -281,7 +390,7 @@ public class Team11SortCompetition extends SortCompetition {
 
         String endNum=arr[high];
         String begNum=arr[low];
-        int middleIndex=((low+high)/2);
+        int middleIndex= (int)((low+high)/2);
         String middle=arr[middleIndex];
 
         if(middle.compareTo(endNum)<0)
@@ -334,7 +443,5 @@ public class Team11SortCompetition extends SortCompetition {
             quickSortString(arr, pi+1, high);
         }
     }
-
-
 
 }
