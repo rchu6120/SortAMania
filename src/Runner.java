@@ -40,13 +40,33 @@ public class Runner {
 
         //Prints time of challengeTwo
         long time2= System.currentTimeMillis();
-        int query= team7.challengeTwo(challengeTwo,"aaa");
+        int query= team7.challengeTwo(challengeTwo,"aae");
         //Prints out sorted String Array (ChallengeTwo)
         System.out.println(Team7SortCompetition.printStrArr(challengeTwo));
         System.out.println("Sorted");
         time2 = System.currentTimeMillis() - time2;
         System.out.println("Challenge Two Time Taken: " + time2 * 0.001 + " Seconds");
         System.out.println("Index of query equals: " + query);
+
+        //Challenge Four
+        long time4= System.currentTimeMillis();
+        int query4= team7.challengeTwo(challengeTwo,"aab");
+        //Prints out sorted String Array (ChallengeTwo)
+        System.out.println(Team7SortCompetition.printStrArr(challengeTwo));
+        System.out.println("Sorted");
+        time2 = System.currentTimeMillis() - time2;
+        System.out.println("Challenge Three Time Taken: " + time4 * 0.001 + " Seconds");
+        System.out.println("Index of query equals: " + query);
+
+        //Challenge Five
+        long time3= System.currentTimeMillis();
+        int query3= team7.challengeFive(randIntArr1,"aab");
+        //Prints out sorted String Array (ChallengeTwo)
+        System.out.println(Team7SortCompetition.printStrArr(challengeFive));
+        System.out.println("Sorted");
+        time2 = System.currentTimeMillis() - time2;
+        System.out.println("Challenge Five Time Taken: " + time3 * 0.001 + " Seconds");
+        System.out.println("Index of query equals: " + query3);
     }
 
 }
