@@ -11,7 +11,6 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return median;
     }
-
     public int challengeTwo(String[] arr, String query) {
         int a = -1;
         mergeSort(arr);
@@ -22,11 +21,9 @@ public class Team7SortCompetition extends SortCompetition {
         }
         return a;
     }
-
     public int challengeThree(int[] arr) {
-        return 0;
+        return  getMedian(arr);
     }
-
     public int challengeFour(int[][] arr) {
         int[] median = new int[arr.length];
         int[] temp = new int[arr.length];
@@ -40,19 +37,14 @@ public class Team7SortCompetition extends SortCompetition {
         insertionSort(median, 0, median.length - 1);
         return getMedian(median);
     }
-
     public int challengeFive(Comparable[] arr, Comparable query) {
         mergeSort(arr);
         return binarySearch(arr, query);
     }
-
     public String greeting() {
         return "Hi Mr. Levin! We're Ben, Jason, Byron and we're team 7";
     }
-
-    //-----------------------------------------------------------------------------------------------------------------
-
-
+    //----------------------------------------------------------------------------------------------------------------
     public static int[] randIntArr(int Count) {
         int[] array = new int[Count];
         for (int i = 0; i < array.length; i++) {
@@ -158,15 +150,15 @@ public class Team7SortCompetition extends SortCompetition {
     public static void mergeSort(Comparable[] arr) {
         int n = arr.length;
         Comparable[] temp = new Comparable[n];
-        mergeSortHelper(arr, 0, n - 1, temp);
+        mergeSortHelper2(arr, 0, n - 1, temp);
     }
 
-    public static void mergeSortHelper(Comparable[] arr, int from, int to, Comparable[] temp) {
-        if (from < to) {
-            int mid = (from + to) / 2;
-            mergeSortHelper(arr, from, mid, temp);
-            mergeSortHelper(arr, mid + 1, to, temp);
-            merge(arr, from, mid, to, temp);
+    public static void mergeSortHelper2(Comparable[] arr, int left, int right Comparable[] temp) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSortHelper(arr, left, mid, temp);
+            mergeSortHelper(arr, mid + 1, right, temp);
+            merge(arr, left, mid, right, temp);
         }
     }
 
@@ -230,16 +222,17 @@ public class Team7SortCompetition extends SortCompetition {
         arr[x] = arr[y];
         arr[y] = temp;
     }
-    public static int getMedian (int [] arr)
-    {
-        if (arr.length % 2 != 0)
-        {
-            return (int)(arr[(arr.length / 2) + 1 ]);
+    public static int getMedian(int[] sortedArray){
+        int l = sortedArray.length;
+        int mid = l/2;
+        if(l == 0){
+            return -1;
         }
-        // if even
-        else
-        {
-            return (int)(arr [arr.length / 2] + arr [ (arr.length / 2 ) - 1 ] ) / 2;
+        if (l % 2 == 0){
+            return ((sortedArray[mid]+sortedArray[mid-1])/2);
+        }
+        else {
+            return (sortedArray[mid]);
         }
     }
 }
