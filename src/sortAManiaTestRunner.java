@@ -31,11 +31,14 @@ public class sortAManiaTestRunner extends Team8SortCompetition {
         //printStringArr(randStringArr);
         //System.out.println(""+query+"");
 
-        System.out.println("Unsorted");
-        printObj(objects);
+       Object query = new Object();
+       System.out.println("Unsorted");
+       printArray(objects);
+       int returns = team1.challengeFive(objects, query);
+       System.out.println("Sorted");
+       printArray(objects);
 
-        System.out.println("Sorted");
-        printObj(objects);
+
 
     }
 }

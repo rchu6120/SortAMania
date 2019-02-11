@@ -275,10 +275,12 @@ public class Team8SortCompetition extends SortCompetition {
         }
     }
 
-    public static void printObj(Comparable[] arr){
-        for (int i = 0; i < arr.length; i ++){
-            System.out.println(arr[i]. + "\n");
+    public static void printArray(Comparable[] arr){
+        String str="";
+        for(int i =0; i<arr.length;i++){
+            str = str + arr[i] + ", ";
         }
+        System.out.println(str);
     }
 
     public static void print2DIntArr(int[][] arr) {
@@ -295,7 +297,15 @@ public class Team8SortCompetition extends SortCompetition {
 
         System.out.println(line);
     }
-
+    public static boolean isSorted(Comparable[] arr){
+        for(int i = 0; i < arr.length-1; i++){
+            if (arr[i].compareTo(arr[i+1]) > 0){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
+
 

@@ -8,4 +8,8 @@ public class Object implements Comparable<Object> {
     public int compareTo(Object obj){
         return this.value - obj.value;
     }
+
+    public  String toString(){
+        return String.valueOf(value);
+    }
 }
