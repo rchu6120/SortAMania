@@ -5,7 +5,7 @@ public class Team13SortCompetition extends SortCompetition
     {
         Sorting_Algorithims.mergeSort(arr);
         int front = arr.length/2;
-        int back = arr.length -1;
+        int back = arr.length/2 +1;
         int median = 0;
         if(arr.length%2 ==0) {
             median = (arr[front] + arr[back]) / 2;

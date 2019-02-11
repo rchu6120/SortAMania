@@ -69,6 +69,7 @@ public class Sorting_Algorithims {
                     temp[k] = arr2[j];
                     j++;
                 }
+                k++;
         }
         while(i<= mid)
         {
@@ -82,6 +83,10 @@ public class Sorting_Algorithims {
             j++;
             k++;
         }
+        for(k = from; k<= to; k++)
+        {
+            arr2[k] = temp[k];
+        }
     }
     public static void doubleMergeSortHelper(int[][] arr2, int from, int to, int[][] temp)
     {
@@ -89,14 +94,14 @@ public class Sorting_Algorithims {
         {
             int middle = (from + to)/2;
             doubleMergeSortHelper(arr2,from,middle,temp);
-            doubleMergeSortHelper(arr2,from,middle,temp);
+            doubleMergeSortHelper(arr2,middle+1, to, temp);
             doubleMerge(arr2,from,middle,to,temp);
         }
     }
     public static void doubleMergeSort(int[][] arr2)
     {
         int n = arr2.length;
-        int m = arr2[0].length;
+        int m = arr2[999].length;
         int [][] temp = new int[n][m];
         doubleMergeSortHelper(arr2,0,n-1,temp);
     }
@@ -217,7 +222,7 @@ public class Sorting_Algorithims {
         {
             int middle = (from+to)/2;
             objMergeSortHelper(arr3, from, middle, temp);
-            objMergeSortHelper(arr3, middle, to, temp);
+            objMergeSortHelper(arr3, middle+1, to, temp);
             objMerge(arr3, from, middle, to, temp);
         }
     }
@@ -239,6 +244,15 @@ public class Sorting_Algorithims {
             }
         }
         return doubleArr;
+    }
+    public static Comparabl[] randObjs()
+    {
+        Comparabl[] objs = new Comparabl[10000];
+        for(int i = 0; i<objs.length;i++)
+        {
+            objs[i] = new Comparabl();
+        }
+            return objs;
     }
     public static int getMedian(int[] arr) {
         // to find the median
