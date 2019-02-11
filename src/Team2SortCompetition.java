@@ -47,7 +47,13 @@ public class Team2SortCompetition extends SortCompetition {
     @Override
     public int challengeFive(Comparable[] arr, Comparable query)
     {
-        return 0;
+        quickSortComparable(arr,0,arr.length-1);
+        for (int i = 0; i < arr.length -1; i++) {
+            if (arr[i].compareTo(query) >= 0) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -111,6 +117,12 @@ public class Team2SortCompetition extends SortCompetition {
         arr[j] = temp;
     }
 
+    public static void swapComparable(Comparable[] arr, int i, int j) {
+        Comparable temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
         public static void BubbleSort(int[] arr) {
             int[] arrTemp = arr;
             int swaps = -1;
@@ -150,6 +162,31 @@ public class Team2SortCompetition extends SortCompetition {
             }
         }
 
+    public static void quickSortComparable(Comparable[] arr,int start, int end)
+    {
+        int i=start;
+        int j=end;
+        if(j-i>=1)
+        {
+            Comparable pivot= arr[i];
+            while(j>i)
+            {
+                while (arr[i].compareTo(pivot) <= 0 && i < end && j > i) {
+                    i++;
+
+                }
+                while (arr[j].compareTo(pivot) >= 0 && j > start && j >= i){
+                    j--;
+                }
+                if (j > i)
+                    swapComparable(arr, i, j);
+            }
+            swapComparable(arr, start, j);
+            quickSortComparable(arr, start, j - 1);
+            quickSortComparable(arr, j + 1, end);
+        }
+    }
+
         public static void insertionSort(int[] arr){
         for (int i = 1; i <arr.length; i++){
             for (int j=i; j > 0; j--){
@@ -163,5 +200,3 @@ public class Team2SortCompetition extends SortCompetition {
         }
         }
     }
-
-//}
