@@ -58,15 +58,6 @@ public class Runner {
         System.out.println("Challenge Three Time Taken: " + time4 * 0.001 + " Seconds");
         System.out.println("Index of query equals: " + query);
 
-        //Challenge Five
-        long time3= System.currentTimeMillis();
-        int query3= team7.challengeFive(c)
-        //Prints out sorted String Array (ChallengeTwo)
-        System.out.println(Team7SortCompetition.printStrArr(challengeFive));
-        System.out.println("Sorted");
-        time2 = System.currentTimeMillis() - time2;
-        System.out.println("Challenge Five Time Taken: " + time3 * 0.001 + " Seconds");
-        System.out.println("Index of query equals: " + query3);
     }
 
 }
