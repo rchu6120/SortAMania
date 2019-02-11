@@ -21,7 +21,6 @@ public class Team7SortCompetition extends SortCompetition {
             }
         }
         return a;
-        return a;
     }
 
     public int challengeThree(int[] arr) {
