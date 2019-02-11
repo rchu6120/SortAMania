@@ -46,7 +46,7 @@ public class Team7SortCompetition extends SortCompetition {
     }
 
     public String greeting() {
-        return "Hi Mr. Levin! We're Ben, Jason, Byron and we're team 7";
+        return "Hi Mr. Levin! We're Ben, Jason, Byron and we're TEAM 7";
     }
     //----------------------------------------------------------------------------------------------------------------
     //Creates random Int Arr
