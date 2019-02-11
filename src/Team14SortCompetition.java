@@ -121,9 +121,8 @@ public class Team14SortCompetition extends SortCompetition
     @Override
     public int challengeFour(int[][] arr)
     {
-        int x = 0;
-        int[] median = new int[1000];
-        int[] temp = new int[1000];
+        int[] median = new int[arr.length];
+        int[] temp = new int[arr.length];
         for (int j = 0; j < arr.length; j++)
         {
             for (int i = 0; i < arr[j].length; i++)
@@ -131,17 +130,9 @@ public class Team14SortCompetition extends SortCompetition
                 temp[i]=arr[j][i];
             }
             insertionSort(temp,0,temp.length-1);
-            median[x] = getMedian(temp);
-            x++;
+            median[j] = getMedian(temp);
         }
         insertionSort(median,0,median.length-1);
-        String out = "";
-        for(int i = 0; i < median.length; i++)
-        {
-            out = out + "[" + median[i] + "] ";
-        }
-        System.out.println("\n"+out + "\n");
-
         return getMedian(median);
     }
 
