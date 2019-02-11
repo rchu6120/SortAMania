@@ -122,50 +122,9 @@ public class Team8SortCompetition extends SortCompetition {
 
     @Override
     public String greeting() {
-        return null;
+        return ("We are Team 8! \n Janice Lin and Ricky Zhao");
     }
 
-    private static void mergeSortHelper(int[] elements, int from, int to, int[] temp)
-    {
-        if (from < to)
-        {
-            int middle = (from + to) / 2;
-            mergeSortHelper(elements, from, middle, temp);
-            mergeSortHelper(elements, middle + 1, to, temp);
-            merge(elements, from, middle, to, temp);
-        }
-    }
-
-    private static void merge(int[] elements, int from, int mid, int to, int[] temp) {
-        int i = from;
-        int j = mid + 1;
-        int k = from;
-
-        while (i <= mid && j <= to) {
-            if (elements[i] < elements[j]) {
-                temp[k] = elements[i];
-                i++;
-            } else {
-                temp[k] = elements[j];
-                j++;
-            }
-            k++;
-        }
-
-        while (i <= mid) {
-            temp[k] = elements[i];
-            i++;
-            k++;
-        }
-        while (j <= to) {
-            temp[k] = elements[j];
-            j++;
-            k++;
-        }
-        for (k = from; k <= to; k++) {
-            elements[k] = temp[k];
-        }
-    }
 
     public static void modShellSort(int[] medArr, int[][] fullArr) {
         int length = medArr.length;
@@ -227,15 +186,6 @@ public class Team8SortCompetition extends SortCompetition {
         return arr;
     }
 
-
-    public static Comparable[] randomObjArr(int num){
-        Comparable[] objects = new Comparable[num];
-        for (int i = 0; i < num; i++){
-            objects[i] = new Object();
-        }
-        return objects;
-    }
-
     public static void Swap(String[] array, int x, int y)
     {
         String temp = array[x];
@@ -247,12 +197,6 @@ public class Team8SortCompetition extends SortCompetition {
         int temp = list1[a];
         list1[a] = list1[b];
         list1[b] = temp;
-    }
-
-    public static void swapRows(int array[][], int rowA, int rowB) {
-        int temp[] = array[rowA];
-        array[rowA] = array[rowB];
-        array[rowB] = temp;
     }
 
     public static void swapObj(Comparable[] arr, int a, int b){
