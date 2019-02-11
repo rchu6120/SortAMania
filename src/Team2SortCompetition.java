@@ -11,7 +11,7 @@ public class Team2SortCompetition extends SortCompetition {
     public int challengeTwo(String[] arr, String query)
     {
         quickSort(arr,0,arr.length-1);
-        for (int i=0; i<arr.length-1; i++)
+        for (int i=0; i<arr.length; i++)
         {
          if (arr[i].equals(query))
          {
@@ -48,7 +48,7 @@ public class Team2SortCompetition extends SortCompetition {
     public int challengeFive(Comparable[] arr, Comparable query)
     {
         quickSortComparable(arr,0,arr.length-1);
-        for (int i = 0; i < arr.length -1; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (arr[i].compareTo(query) >= 0) {
                 return i;
             }
@@ -58,7 +58,7 @@ public class Team2SortCompetition extends SortCompetition {
 
     @Override
     public String greeting() {
-        return "Hello, we are Team 2 but we'll be #1";
+        return "Hello, we are Team 2 but we'll be 20th place.";
     }
 
 
