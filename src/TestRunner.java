@@ -34,7 +34,7 @@ public class TestRunner {
     public static void main(String[] args)
     {
         SortCompetition team13 = new Team13SortCompetition();
-        int[] randIntArr = {1,23,2344,56565,86,9,0,45657578,22,1,343,2,563,6655,9244,8566};
+        int[] randIntArr = {1,2,4,5,8,9,0,7,2,1,4,2,6,5,9,6};
         String[] randomStringArr = randomStringArr(10000, 5);
 
         System.out.println("Unsorted");

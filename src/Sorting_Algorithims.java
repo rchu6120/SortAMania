@@ -1,5 +1,6 @@
 public class Sorting_Algorithims {
-    public static void merge(int[] arr, int from, int mid, int to, int[] temp) {
+    public static void merge(int[] arr, int from, int mid, int to, int[] temp)
+    {
         int x = from;
         int y = mid + 1;
         int z = from;
@@ -12,7 +13,7 @@ public class Sorting_Algorithims {
                 x++;
             }
             else
-                {
+            {
                 temp[z] = arr[y];
                 y++;
             }
@@ -31,9 +32,14 @@ public class Sorting_Algorithims {
             z++;
             y++;
         }
+        for(z = from; z<= to; z++)
+        {
+            arr[z] = temp[z];
+        }
     }
     private static void mergeSortHelper(int[] arr, int from, int to, int[] temp) {
-        if (from < to) {
+        if (from < to)
+        {
             int middle = (from + to) / 2;
             mergeSortHelper(arr, from, middle, temp);
             mergeSortHelper(arr, middle+1, to, temp);
@@ -175,10 +181,12 @@ public class Sorting_Algorithims {
             if (arr3[a].compareTo(arr3[b])>-1)
             {
                 temp[c] = arr3[a];
+                a++;
             }
             else
             {
                 temp[c] = arr3[b];
+                b++;
             }
             c++;
         }
@@ -201,7 +209,7 @@ public class Sorting_Algorithims {
         {
             int middle = (from+to)/2;
             objMergeSortHelper(arr3, from, middle, temp);
-            objMergeSortHelper(arr3, from, middle, temp);
+            objMergeSortHelper(arr3, middle, to, temp);
             objMerge(arr3, from, middle, to, temp);
         }
     }
