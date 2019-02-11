@@ -167,12 +167,9 @@ public class Team7SortCompetition extends SortCompetition {
     public static int getMedian3 (int [] arr)
     {
         int a = arr.length/2;
-        if (arr.length % 2 != 0)
-        {
+        if (arr.length % 2 != 0) {
             return (arr[(a) + 1 ]);
-        }
-        else
-        {
+        } else {
             return (arr [a] + arr [a-1 ] ) / 2;
         }
     }
