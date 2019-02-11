@@ -11,11 +11,6 @@ public class Team14SortCompetition extends SortCompetition
 
     //Swapping methods:
 
-    public static void swap(double[] arr, int x, int y) {
-        double temp = arr[x];
-        arr[x] = arr[y];
-        arr[y] = temp;
-    }
 
     public static void swap(int[] arr, int x, int y) {
         int temp = arr[x];
@@ -212,58 +207,8 @@ public class Team14SortCompetition extends SortCompetition
     }
 
 
-    private static void merge(int[] elements, int from, int mid, int to)
-    {
-        int [] temp = new int[elements.length];
-        int i = from;
-        int j = mid + 1;
-        int k = from;
-        while (i <= mid && j <= to)
-        {
-            if (elements[i] < elements[j]) {
-                temp[k] = elements[i];
-                i++;
-            } else {
-                temp[k] = elements[j];
-                j++;
-            }
-            k++;
-        }
-        while (i <= mid)
-        {
-            temp[k] = elements[i];
-            i++;
-            k++;
-        }
-        while (j <= to)
-        {
-            temp[k] = elements[j];
-            j++;
-            k++;
-        }
-        for (k = from; k <= to; k++)
-        {
-            elements[k] = temp[k];
-        }
-    }
 
-    // arr is array to be sorted, n is the length of the array.
-    public static int Run = 32;
 
-    public static void timSort (int [] arr, int n)
-    {
-        for (int i = 0; i < n; i+= Run)
-        {
-            insertionSort(arr, i, Math.min(i+31,(n-1)));
-        }
-        for (int size = Run; size < n; size = 2*size)
-        {
-            for (int left = 0; left < n; left += 2*size)
-            {
-                int mid = left+size-1;
-                int right = Math.min((left+2*size-1),(n-1));
-                merge(arr, left, mid,right);
-            }
-        }
-    }
+
+
 }
