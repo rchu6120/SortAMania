@@ -12,8 +12,8 @@ public class Team4SortCompetition extends SortCompetition {
         return 0;
     }
 
-    public int challengeThree(int[] arr){
-        return 0;
+    public int challengeThree(int[] third){
+        return (int) getMedian(third);
     }
 
     public int challengeFour(int[][] arr){
@@ -107,25 +107,63 @@ public class Team4SortCompetition extends SortCompetition {
         return medianArr;
     }
 
-    public static void main(String args[]) {
-//        Random rgen = new Random();
-//        int[] nums = new int[10001];
-//
-//        for (int i = 0; i < nums.length; i++) {
-//            nums[i] = i;
-//        }
-//
-//        for (int i = 0; i < nums.length; i++) {
-//            int randomPosition = rgen.nextInt(nums.length);
-//            int temp = nums[i];
-//            nums[i] = nums[randomPosition];
-//            nums[randomPosition] = temp;
-//        }
-//
-//        for (int i = 0; i < nums.length; i++) {
-//            System.out.println(nums[i]);
-//        }
+
+
+
+    public static void InsertionSort (int[] third) {
+        int n = third.length;
+        for (int i = 1; i < n; i++) {
+            int key = third[i];
+            int j = i - 1;
+
+            while (j >= 0 && third[j]>key)
+            {
+                third[j+1] = third[j];
+                j=j-1;
+            }
+            third[j+1]=key;
+        }
     }
+    public static double getSecondMedian(int[] third) {
+        int n = third.length;
+
+        sort(third);
+
+        if (n % 2 != 0) { // odd length
+            return third[n / 2]; // return middle element
+        } else { // even length
+            return (third[n / 2] + third[1 + n / 2]) * 0.5; // return average of middle two elements
+        }
+    }
+    private static double[] getSecondMedianArray(int[][] third) {
+        double[] medianArr = new double[third.length];
+
+        for (int i = 0; i < third.length; i++) {
+            medianArr[i] = getMedian(third[i]);
+        }
+
+        return medianArr;
+    }
+    public static double getSecondMedian(double[] third){
+        int n = third.length;
+
+        // TODO: Implement alternate sort algorithm, "sort" is ILLEGAL!
+        sort(third);
+
+        if (n % 2 != 0) { // odd length
+            return third[n / 2]; // return middle element
+        } else { // even length
+            return (third[n / 2] + third[1 + n / 2]) * 0.5; // return average of middle two elements
+        }
+    }
+
+
+
+
+
+
+
+
 
 }
 
