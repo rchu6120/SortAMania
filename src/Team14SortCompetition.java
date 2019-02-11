@@ -104,7 +104,6 @@ public class Team14SortCompetition extends SortCompetition
         insertionSort(arr,0, arr.length-1);
         return getMedian(arr);
     }
-
     /**
      * challengeFour: Multi-Dimensional sorting
      * Data Set - a multi-dimensional array int[1000][1000] all elements are random integers between 0-10000
