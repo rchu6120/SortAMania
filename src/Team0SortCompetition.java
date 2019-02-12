@@ -245,13 +245,12 @@ public class Team0SortCompetition extends SortCompetition {
 
     //Helper Methods
     public static int median(int[] arr) {
-        if (arr.length % 2 == 0){
-            median = ((int)arr[arr.length/2] + (int)arr[arr.length/2 - 1])/2;
-        else{
-            median = (int) arr[arr.length/2];
+        if (arr.length % 2 == 0) {
+            return (arr[arr.length / 2] + arr[arr.length / 2 - 1]) / 2;
+        }
+        else {
+            return arr[arr.length / 2];
+        }
     }
 
 }
-
-
-
